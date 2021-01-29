@@ -13,9 +13,8 @@
       <pubDate>Wed, 27 Jan 2021 18:02:43 +0000</pubDate>
       
       <guid>https://www.samueldevega.com/sobre-mi/</guid>
-      <description>Soy originario de Las Palmas de Gran Canaria y me dedico al desarrollo de software multiplataforma.
-Me defino como alguien autodidacta, con afán de superación, creativo, proactivo, asertivo y siempre encantado de trabajar en equipo.
-Actualmente trabajo en Lean Mind.</description>
+      <description>.photo-container { border: 3px solid #e8eef2; border-radius: 50%; height: 150px; margin: 0 auto; overflow: hidden; position: relative; width: 150px; } .photo-color { position: absolute; } .photo-monochrome { opacity: 100%; position: absolute; transition: all ease-in-out 0.3s; } .photo-monochrome:hover { opacity: 0; }   Soy originario de Las Palmas de Gran Canaria y me dedico al desarrollo de software multiplataforma.
+Me defino como alguien autodidacta, con afán de superación, creativo, proactivo, asertivo y siempre encantado de trabajar en equipo.</description>
     </item>
     
     <item>
