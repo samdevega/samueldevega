@@ -1,0 +1,48 @@
+baseURL = "http://localhost:1313"
+languageCode = "es-es"
+defaultContentLanguage = "es"
+title = "Samuel de Vega"
+theme = "hermit"
+pygmentsCodefences  = true
+pygmentsUseClasses  = true
+rssLimit = 10
+enableEmoji = true
+
+[author]
+  name = "Samuel de Vega"
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  dateform        = "2 Jan, 2006"
+  dateformShort   = "2 Jan"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "02-01-2006 15:04 +0000"
+	homeSubtitle = "Software Developer"
+  bgImg = "/homepage.svg"
+	code_copy_button = true
+
+	[[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/SamdeVega"
+
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/SamdeVega"
+
+	[[params.social]]
+    name = "linkedin"
+    url = "https://es.linkedin.com/in/sam-de-vega"
+
+[menu]
+
+  [[menu.main]]
+    name = "Posts"
+    url = "posts/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Sobre mí"
+    url = "sobre-mi/"
+    weight = 20
