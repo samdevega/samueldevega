@@ -4,7 +4,7 @@ date: 2019-03-17T19:55:05Z
 draft: false
 toc: false
 images:
-  - /posts/refactoring-cambios-seguros.jpg
+  - /images/refactoring-cambios-seguros.jpg
 tags: 
   - refactoring
 ---

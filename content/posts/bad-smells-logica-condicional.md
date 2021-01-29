@@ -4,7 +4,7 @@ date: 2019-03-19T21:46:06Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-logica-condicional.jpg
+  - /images/bad-smells-logica-condicional.jpg
 tags: 
   - bad-smells
 ---

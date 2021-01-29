@@ -4,7 +4,7 @@ date: 2019-06-23T09:51:33Z
 draft: false
 toc: false
 images:
-  - /posts/design-principles-cohesion-acoplamiento-y-encapsulamiento.jpg
+  - /images/design-principles-cohesion-acoplamiento-y-encapsulamiento.jpg
 tags: 
   - design-principles
 ---

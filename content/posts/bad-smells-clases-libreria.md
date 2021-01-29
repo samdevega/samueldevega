@@ -4,7 +4,7 @@ date: 2019-03-20T18:44:47Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-clases-libreria.jpg
+  - /images/bad-smells-clases-libreria.jpg
 tags: 
   - bad-smells
 ---

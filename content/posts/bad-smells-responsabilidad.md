@@ -4,7 +4,7 @@ date: 2019-03-20T15:02:42Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-responsabilidad.jpg
+  - /images/bad-smells-responsabilidad.jpg
 tags: 
   - bad-smells
 ---

@@ -4,7 +4,7 @@ date: 2019-03-19T21:02:05Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-nombres.jpg
+  - /images/bad-smells-nombres.jpg
 tags: 
   - bad-smells
 ---

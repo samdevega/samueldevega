@@ -4,7 +4,7 @@ date: 2019-03-19T21:14:35Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-complejidad-innecesaria.jpg
+  - /images/bad-smells-complejidad-innecesaria.jpg
 tags: 
   - bad-smells
 ---

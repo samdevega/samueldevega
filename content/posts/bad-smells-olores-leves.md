@@ -4,7 +4,7 @@ date: 2019-03-19T20:42:59Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-olores-leves.jpg
+  - /images/bad-smells-olores-leves.jpg
 tags: 
   - bad-smells
 ---

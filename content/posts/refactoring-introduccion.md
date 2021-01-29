@@ -4,7 +4,7 @@ date: 2019-03-15T18:48:02Z
 draft: false
 toc: false
 images:
-  - /posts/refactoring-introduccion.jpg
+  - /images/refactoring-introduccion.jpg
 tags: 
   - refactoring
 ---

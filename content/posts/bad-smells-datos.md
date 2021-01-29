@@ -4,7 +4,7 @@ date: 2019-03-20T08:09:48Z
 draft: false
 toc: false
 images:
-  - /posts/bad-smells-datos.jpg
+  - /images/bad-smells-datos.jpg
 tags: 
   - bad-smells
 ---
