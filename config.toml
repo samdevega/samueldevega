@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313"
+baseURL = "https://samdevega.github.io/samueldevega/"
 languageCode = "es-es"
 defaultContentLanguage = "es"
 title = "Samuel de Vega"
@@ -7,6 +7,7 @@ pygmentsCodefences  = true
 pygmentsUseClasses  = true
 rssLimit = 10
 enableEmoji = true
+publishDir = "docs"
 
 [author]
   name = "Samuel de Vega"
