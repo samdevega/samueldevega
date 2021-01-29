@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Samuel de Vega</title>
-    <link>http://localhost:1313/</link>
+    <link>https://samdevega.github.io/samueldevega/</link>
     <description>Recent content on Samuel de Vega</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Sun, 23 Jun 2019 09:51:33 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jun 2019 09:51:33 +0000</lastBuildDate><atom:link href="https://samdevega.github.io/samueldevega/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sobre mí</title>
-      <link>http://localhost:1313/sobre-mi/</link>
+      <link>https://samdevega.github.io/samueldevega/sobre-mi/</link>
       <pubDate>Wed, 27 Jan 2021 18:02:43 +0000</pubDate>
       
-      <guid>http://localhost:1313/sobre-mi/</guid>
+      <guid>https://samdevega.github.io/samueldevega/sobre-mi/</guid>
       <description>Soy originario de Las Palmas de Gran Canaria y me dedico al desarrollo de software multiplataforma.
 Me defino como alguien autodidacta, con afán de superación, creativo, proactivo, asertivo y siempre encantado de trabajar en equipo.
 Actualmente trabajo en Lean Mind.</description>
@@ -20,20 +20,20 @@ Actualmente trabajo en Lean Mind.</description>
     
     <item>
       <title>Design Principles: Cohesión, acoplamiento y encapsulamiento</title>
-      <link>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
       <pubDate>Sun, 23 Jun 2019 09:51:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
       <description>Cohesión En el diseño orientado a objetos, se entiende por cohesión (cohesion en inglés) al grado en el que los distintos elementos de un módulo se mantienen unidos a dicho módulo. Es decir, aquellos elementos que pueden entenderse como parte de un concepto que los engloba, deberían estar dentro de este y no dispersos en otros módulos.
 Los elementos convergen hacia su propio módulo y son conocidos y usados sólo por este</description>
     </item>
     
     <item>
       <title>Bad Smells: Clases Librería</title>
-      <link>http://localhost:1313/posts/bad-smells-clases-libreria/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-clases-libreria/</link>
       <pubDate>Wed, 20 Mar 2019 18:44:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-clases-libreria/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-clases-libreria/</guid>
       <description>Introducción Una aplicación moderna utilizará clases librería. En ocasiones estas nos ponen en un dilema. Queremos que la librería sea diferente, pero no queremos cambiarla. Incluso cuando es posible cambiar de librería, conlleva riesgos: Afecta a otros clientes y ello implica rehacer nuestros cambios para futuras versiones de la librería.
 Incomplete Library Class Síntomas Estás utilizando una librería y hay una característica que te gustaría que tuviese.
 Qué hacer  Contactar con el creador para ver si puede incorporar la característica.</description>
@@ -41,10 +41,10 @@ Qué hacer  Contactar con el creador para ver si puede incorporar la caracterís
     
     <item>
       <title>Bad Smells: Alojando el cambio</title>
-      <link>http://localhost:1313/posts/bad-smells-alojando-el-cambio/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-alojando-el-cambio/</link>
       <pubDate>Wed, 20 Mar 2019 17:31:25 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-alojando-el-cambio/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-alojando-el-cambio/</guid>
       <description>Introducción Algunos problemas se vuelven más aparentes cuando intentas cambiar el código. Lo ideal es que una decisión de cambio afecte sólo a un único lugar. Cuando esto no sucede, es una señal de duplicidad de código. Detectar estos problemas suele tener otros beneficios como facilitar la testeabilidad del código.
 Los malos olores relativos al cambio simultáneo forzado entre clases son:
  Divergent Change Shotgun Surgery Parallel Inheritance Hierarchies Combinatorial Explosion  Divergent Change Síntomas Una misma clase necesita cambiar por diferentes motivos.</description>
@@ -52,10 +52,10 @@ Los malos olores relativos al cambio simultáneo forzado entre clases son:
     
     <item>
       <title>Bad Smells: Responsabilidad</title>
-      <link>http://localhost:1313/posts/bad-smells-responsabilidad/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-responsabilidad/</link>
       <pubDate>Wed, 20 Mar 2019 15:02:42 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-responsabilidad/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-responsabilidad/</guid>
       <description>Introducción El equilibrio en la responsabilidad entre objetos es difícil de conseguir. Una de las virtudes de la refactorización es que nos permite experimentar con diferentes ideas de una forma segura y nos permite cambiar de idea.
 Hay herramientas que nos ayudan a decidir como trabajan los objetos entre sí, como los patrones de diseño o las cartas CRC.
 Las refactorizaciones suelen ser reversibles y pueden compensar dos opciones.
@@ -64,20 +64,20 @@ Los malos olores que pueden aparecer por una mala separación de las responsabil
     
     <item>
       <title>Bad Smells: Herencia</title>
-      <link>http://localhost:1313/posts/bad-smells-herencia/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-herencia/</link>
       <pubDate>Wed, 20 Mar 2019 12:47:12 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-herencia/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-herencia/</guid>
       <description>Introducción La relación entre una clase y su subclase suele comenzar siendo simple pero se va volviendo más complicada con el paso del tiempo. Una subclase a menudo depende de su generalización más estrechamente que una clase ajena, pero esto puede ser demasiado.
 La clave es decidir entre lo que una clase es y lo que una clase tiene. La estructura de una clase suele comenzar con herencia y con el paso del tiempo se mueve más hacia la composición.</description>
     </item>
     
     <item>
       <title>Bad Smells: Datos</title>
-      <link>http://localhost:1313/posts/bad-smells-datos/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-datos/</link>
       <pubDate>Wed, 20 Mar 2019 08:09:48 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-datos/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-datos/</guid>
       <description>Introducción Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.
 Los malos olores resultantes de un mal uso de las estructuras de datos son:
  Primitive Obsession Data Class Data Clump  Primitive Obsession Síntomas  Uso de primitivos o casi primitivos (int, float, String, etc.). Constantes y enumeraciones representando pequeños enteros. Constantes de tipo String representando nombres de campos.</description>
@@ -85,20 +85,20 @@ Los malos olores resultantes de un mal uso de las estructuras de datos son:
     
     <item>
       <title>Bad Smells: Lógica condicional</title>
-      <link>http://localhost:1313/posts/bad-smells-logica-condicional/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-logica-condicional/</link>
       <pubDate>Tue, 19 Mar 2019 21:46:06 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-logica-condicional/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-logica-condicional/</guid>
       <description>Introducción  Es difícil de razonar ya que tenemos que considerar múltiples caminos a través del código. Es tentador añadir casos de uso especiales en lugar de desarrollar un caso de uso general. A veces es usada como un mal sustituto de mecanismos orientados a objetos.  Los malos olores derivados de un mal uso de la lógica condicional son:
  Null Check Complicated Boolean Expression Special Case Simulated Inheritance (Switch Statement)  Null Check Qué hacer  Si hay un valor por defecto razonable, utilizalo.</description>
     </item>
     
     <item>
       <title>Bad Smells: Duplicación</title>
-      <link>http://localhost:1313/posts/bad-smells-duplicacion/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-duplicacion/</link>
       <pubDate>Tue, 19 Mar 2019 21:29:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-duplicacion/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-duplicacion/</guid>
       <description>Introducción La duplicación causa los siguientes problemas:
  Hay más código que mantener. Las partes que varían están enterradas bajo las partes que se mantienen fijas. Variaciones en el código a menudo esconden similitudes más profundas. Hay tendencia a reparar un bug en un lugar y dejar otros idénticos sin reparar en otro sitio.  La duplicación del código suele ser síntoma de varios malos olores, como son:
  Magic Number Duplicated Code Alternative Classes with Different Interfaces  Magic Number Qué hacer Utiliza Replace Magic Number with Symbolic Constant para el valor específico.</description>
@@ -106,10 +106,10 @@ Los malos olores resultantes de un mal uso de las estructuras de datos son:
     
     <item>
       <title>Bad Smells: Complejidad innecesaria</title>
-      <link>http://localhost:1313/posts/bad-smells-complejidad-innecesaria/</link>
+      <link>https://samdevega.github.io/samueldevega/posts/bad-smells-complejidad-innecesaria/</link>
       <pubDate>Tue, 19 Mar 2019 21:14:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bad-smells-complejidad-innecesaria/</guid>
+      <guid>https://samdevega.github.io/samueldevega/posts/bad-smells-complejidad-innecesaria/</guid>
       <description>&amp;ldquo;Everything should be made as simple as possible. But not simpler.&amp;rdquo;
 &amp;ndash; Albert Einstein La complejidad innecesaria del código puede presentarse en los siguientes malos olores:
  Dead Code Speculative Generality  Introducción Sigue el principio YAGNI (You Aren’t Gonna Need It).
