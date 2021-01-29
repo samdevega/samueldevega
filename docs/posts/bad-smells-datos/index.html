@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta itemprop="name" content="Bad Smells: Datos">
+<meta itemprop="description" content="Introducción Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.
+Los malos olores resultantes de un mal uso de las estructuras de datos son:
+ Primitive Obsession Data Class Data Clump  Primitive Obsession Síntomas  Uso de primitivos o casi primitivos (int, float, String, etc.). Constantes y enumeraciones representando pequeños enteros. Constantes de tipo String representando nombres de campos.">
+<meta itemprop="datePublished" content="2019-03-20T08:09:48+00:00" />
+<meta itemprop="dateModified" content="2019-03-20T08:09:48+00:00" />
+<meta itemprop="wordCount" content="621">
+<meta itemprop="image" content="http://localhost:1313/posts/bad-smells-datos.jpg">
+
+
+
+<meta itemprop="keywords" content="bad-smells," />
+<meta property="og:title" content="Bad Smells: Datos" />
+<meta property="og:description" content="Introducción Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.
+Los malos olores resultantes de un mal uso de las estructuras de datos son:
+ Primitive Obsession Data Class Data Clump  Primitive Obsession Síntomas  Uso de primitivos o casi primitivos (int, float, String, etc.). Constantes y enumeraciones representando pequeños enteros. Constantes de tipo String representando nombres de campos." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/bad-smells-datos/" />
+<meta property="og:image" content="http://localhost:1313/posts/bad-smells-datos.jpg" />
+<meta property="article:published_time" content="2019-03-20T08:09:48+00:00" />
+<meta property="article:modified_time" content="2019-03-20T08:09:48+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/posts/bad-smells-datos.jpg"/>
+
+<meta name="twitter:title" content="Bad Smells: Datos"/>
+<meta name="twitter:description" content="Introducción Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.
+Los malos olores resultantes de un mal uso de las estructuras de datos son:
+ Primitive Obsession Data Class Data Clump  Primitive Obsession Síntomas  Uso de primitivos o casi primitivos (int, float, String, etc.). Constantes y enumeraciones representando pequeños enteros. Constantes de tipo String representando nombres de campos."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Bad Smells: Datos</title>
+	<link rel="stylesheet" href="http://localhost:1313/css/style.min.cef83ef5167f12741bccef926388e39efef792fb33291b97aa82f67bad13b3d5.css" integrity="sha256-zvg+9RZ/EnQbzO+SY4jjnv73kvszKRuXqoL2e60Ts9U=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('http://localhost:1313/posts/bad-smells-datos.jpg');}</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="http://localhost:1313">Samuel de Vega</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="http://localhost:1313/posts/">Posts</a>
+				<a href="http://localhost:1313/sobre-mi/">Sobre mí</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/SamdeVega" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/SamdeVega" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://es.linkedin.com/in/sam-de-vega" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="http://localhost:1313/posts/">Posts</a></li>
+			<li><a href="http://localhost:1313/sobre-mi/">Sobre mí</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>20 Mar, 2019</span></div>
+				<h1>Bad Smells: Datos</h1>
+			</header>
+			<div class="content">
+				<h2 id="introducción">Introducción<a href="#introducción" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.</p>
+<p>Los malos olores resultantes de un mal uso de las estructuras de datos son:</p>
+<ul>
+<li><a href="#primitive-obsession">Primitive Obsession</a></li>
+<li><a href="#data-class">Data Class</a></li>
+<li><a href="#data-clump">Data Clump</a></li>
+</ul>
+<h2 id="primitive-obsession">Primitive Obsession<a href="#primitive-obsession" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="síntomas">Síntomas<a href="#síntomas" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Uso de primitivos o casi primitivos (<em>int</em>, <em>float</em>, <em>String</em>, etc.).</li>
+<li>Constantes y enumeraciones representando pequeños enteros.</li>
+<li>Constantes de tipo <em>String</em> representando nombres de campos.</li>
+</ul>
+<h3 id="qué-hacer">Qué hacer<a href="#qué-hacer" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>Para <em>Missing Class</em>:</p>
+<ul>
+<li>Revisar <em>Data Clump</em>, porque el primitivo suele ser encapsulado para localizar el problema.</li>
+<li>Aplica <em>Replace Data Value with Object</em> para crear valores de datos de primera clase.</li>
+</ul>
+<p>Para <em>Simulated Types</em>:</p>
+<ul>
+<li>Si no hay comportamiento que sea condicional, entonces es más un enumerador, así que utiliza <em>Replace Type Code with Class</em>.</li>
+<li>Si cambia o la clase ya tiene subclase, utiliza <em>Replace Type Code with State/Strategy</em>.</li>
+</ul>
+<p>Para <em>Simulated Field Accessors</em>:</p>
+<p>Si el primitivo es usado para tratar ciertos elementos array, aplica <em>Replace Array with Object</em>.</p>
+<h3 id="recompensas">Recompensas<a href="#recompensas" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+<li>Mejora la flexibilidad.</li>
+<li>Suele exponer la necesidad de otras refactorizaciones.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones<a href="#contraindicaciones" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Suele haber problemas de rendimiento o dependencia que te detengan en localizarlo.</li>
+<li>En ocasiones un <em>Map</em> suele ser utilizado en lugar de un objeto con campos fijos, utilizando los nombres de los campos como índices. Esto puede reducir el acoplamiento de la estructura de un objeto simple, pero con un coste en el rendimiento, la seguridad del tipado y la claridad.</li>
+</ul>
+<h2 id="data-class">Data Class<a href="#data-class" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="síntomas-1">Síntomas<a href="#síntomas-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>La clase consiste únicamente en datos públicos, o <em>getters</em> y <em>setters</em>. Esto hace al cliente depender de la mutabilidad y representación de la clase.</p>
+<h3 id="qué-hacer-1">Qué hacer<a href="#qué-hacer-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>Aplica <em>Encapsulate Field</em> al bloque para sólo permitir el acceso a los campos mediante <em>getters</em> y <em>setters</em>.</li>
+<li>Aplica <em>Remove Setting Methods</em> a todos los métodos que puedas.</li>
+<li>Utiliza <em>Encapsulate Collection</em> para eliminar el acceso directo a alguno de los campos de tipo colección.</li>
+<li>Mira en cada cliente del objeto. Probablemente encontrarás que los clientes acceden a los campos y manipulan los resultados, cuando lo debería estar haciendo la propia clase.</li>
+<li>Tras analizarlo verás que tienes muchos métodos similares en la clase. Utiliza entonces refactorizaciones como <em>Rename Method</em>, <em>Extract Method</em>, <em>Add Parameter</em> o <em>Remove Parameter</em> para armonizar las firmas y eliminar la duplicidad.</li>
+<li>No deberían de necesitarse más accesos a los campos porque los métodos movidos cubren su uso real. Utiliza <em>Hide Method</em> para eliminar el acceso a los <em>getters</em> y <em>setters</em>.</li>
+</ol>
+<h3 id="recompensas-1">Recompensas<a href="#recompensas-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+<h3 id="contraindicaciones-1">Contraindicaciones<a href="#contraindicaciones-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>En ocasiones el encapsulamiento de campos puede tener un coste en el rendimiento.</li>
+<li>Algunos mecanismos de persistencia se basan en los métodos <em>getters/setters</em> para definir cuales serán los campos de los que obtendrán los datos a cargar o guardar. (Ver <em>Mementos, Gamma’s Design Patterns</em>). También se puede encapsular esta clase en otra contenedora.</li>
+</ul>
+<h2 id="data-clump">Data Clump<a href="#data-clump" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="síntomas-2">Síntomas<a href="#síntomas-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Los mismos dos o tres elementos aparecen juntos frecuentemente en clases y listas de parámetros.</li>
+<li>El código declara grupos de campos y métodos juntos dentro de la clase.</li>
+<li>Los grupos o nombres de campos empiezan o terminan de forma similar.</li>
+</ul>
+<h3 id="qué-hacer-2">Qué hacer<a href="#qué-hacer-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Si los elementos son campos en una clase, utiliza <em>Extract Class</em> para llevarlos a una nueva clase.</li>
+<li>Si los valores están juntos en la firma de un método, utiliza <em>Introduce Parameter Object</em> para extraer el nuevo objeto.</li>
+<li>Mira las llamadas que pasan los elementos desde el nuevo objeto para ver si puedes aplicarles <em>Preserve Whole Object</em>.</li>
+<li>Mira los usos de los elementos. Suelen haber oportunidades de utilizar <em>Move Method</em> y otras refactorizaciones para mover esos usos al nuevo objeto, identificando <em>Data Class</em>.</li>
+</ul>
+<h3 id="recompensas-2">Recompensas<a href="#recompensas-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+<li>Suele reducir el tamaño.</li>
+</ul>
+<h3 id="contraindicaciones-2">Contraindicaciones<a href="#contraindicaciones-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>Ocasionalmente, pasar un objeto completo puede introducir una dependencia. En este caso pasa únicamente las piezas que necesites.</li>
+<li>Puede repercutir negativamente en el rendimiento.</li>
+</ul>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="http://localhost:1313/tags/bad-smells">bad-smells</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>20-03-2019 08:09 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="http://localhost:1313/posts/bad-smells-herencia/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>Bad Smells: Herencia</span>
+			</a>
+			<a class="prev-post" href="http://localhost:1313/posts/bad-smells-logica-condicional/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Bad Smells: Lógica condicional</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>
+			&copy; 2021 <a href="http://localhost:1313">Samuel de Vega</a> &#183; <a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="http://localhost:1313/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

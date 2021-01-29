@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta itemprop="name" content="Design Principles: La Ley de Demeter">
+<meta itemprop="description" content="Sobre la Ley de Demeter La Ley de Demeter (Law of Demeter en inglés) o LoD, también conocida como Principio del menor conocimiento (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.
+Enuncia lo siguiente:
+ Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual. Cada unidad debe hablar solo a sus amigos y no hablar con extraños.">
+<meta itemprop="datePublished" content="2019-03-17T20:20:50+00:00" />
+<meta itemprop="dateModified" content="2019-03-17T20:20:50+00:00" />
+<meta itemprop="wordCount" content="726">
+<meta itemprop="image" content="http://localhost:1313/posts/design-principles-la-ley-de-demeter.jpg">
+
+
+
+<meta itemprop="keywords" content="design-principles," />
+<meta property="og:title" content="Design Principles: La Ley de Demeter" />
+<meta property="og:description" content="Sobre la Ley de Demeter La Ley de Demeter (Law of Demeter en inglés) o LoD, también conocida como Principio del menor conocimiento (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.
+Enuncia lo siguiente:
+ Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual. Cada unidad debe hablar solo a sus amigos y no hablar con extraños." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/design-principles-la-ley-de-demeter/" />
+<meta property="og:image" content="http://localhost:1313/posts/design-principles-la-ley-de-demeter.jpg" />
+<meta property="article:published_time" content="2019-03-17T20:20:50+00:00" />
+<meta property="article:modified_time" content="2019-03-17T20:20:50+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/posts/design-principles-la-ley-de-demeter.jpg"/>
+
+<meta name="twitter:title" content="Design Principles: La Ley de Demeter"/>
+<meta name="twitter:description" content="Sobre la Ley de Demeter La Ley de Demeter (Law of Demeter en inglés) o LoD, también conocida como Principio del menor conocimiento (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.
+Enuncia lo siguiente:
+ Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual. Cada unidad debe hablar solo a sus amigos y no hablar con extraños."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Design Principles: La Ley de Demeter</title>
+	<link rel="stylesheet" href="http://localhost:1313/css/style.min.cef83ef5167f12741bccef926388e39efef792fb33291b97aa82f67bad13b3d5.css" integrity="sha256-zvg+9RZ/EnQbzO+SY4jjnv73kvszKRuXqoL2e60Ts9U=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('http://localhost:1313/posts/design-principles-la-ley-de-demeter.jpg');}</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="http://localhost:1313">Samuel de Vega</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="http://localhost:1313/posts/">Posts</a>
+				<a href="http://localhost:1313/sobre-mi/">Sobre mí</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/SamdeVega" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/SamdeVega" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://es.linkedin.com/in/sam-de-vega" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="http://localhost:1313/posts/">Posts</a></li>
+			<li><a href="http://localhost:1313/sobre-mi/">Sobre mí</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>17 Mar, 2019</span></div>
+				<h1>Design Principles: La Ley de Demeter</h1>
+			</header>
+			<div class="content">
+				<h2 id="sobre-la-ley-de-demeter">Sobre la Ley de Demeter<a href="#sobre-la-ley-de-demeter" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>La <em>Ley de Demeter</em> (Law of Demeter en inglés) o LoD, también conocida como <em>Principio del menor conocimiento</em> (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.</p>
+<p>Enuncia lo siguiente:</p>
+<ul>
+<li>Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual.</li>
+<li>Cada unidad debe hablar solo a sus amigos y no hablar con extraños.</li>
+<li>Solo hablar con sus amigos inmediatos.</li>
+</ul>
+<h2 id="trasladando-la-ley-de-demeter-a-código">Trasladando la Ley de Demeter a código<a href="#trasladando-la-ley-de-demeter-a-código" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Para cumplir con dichas premisas a nivel de código, se parte de que un método sólo debería utilizar otros métodos de:</p>
+<ul>
+<li>La propia clase a la que pertenece.</li>
+<li>Un objeto creado por el propio método.</li>
+<li>Un objeto pasado como parámetro de entrada al propio método.</li>
+<li>Un objeto almacenado como variable a nivel de la propia clase (propiedad).</li>
+</ul>
+<p>Un método nunca debería utilizar otro método de un objeto retornado por sus colaboradores.</p>
+<p>Veamos ahora cómo estas técnicas de refactoring nos ayudan a cumplir con dicha ley.</p>
+<h2 id="hide-delegate-ocultar-delegado">Hide Delegate (ocultar delegado)<a href="#hide-delegate-ocultar-delegado" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Es una técnica utilizada para mover características entre clases. Se utiliza cuando nos encontramos con el problema en que un objeto <em>Client</em> hace una llamada a un método de un objeto <em>Delegate</em>, que a su vez es una propiedad u objeto retornado por un objeto <em>Server</em>, de otra clase. Se estaría produciendo un incumplimiento de la <em>Ley de Demeter</em>.</p>
+<p><img src="/posts/design-principles-la-ley-de-demeter-1.jpg" alt="La Ley de Demeter 1"></p>
+<p>La forma correcta de proceder es crear en <em>Server</em> un método propio que internamente llame y retorne el comportamiento que <em>Client</em> necesita de <em>Delegate</em>. De esta forma, <em>Client</em> no es consciente en ningún momento de la existencia de <em>Delegate</em> y eliminamos así la dependencia entre estas dos clases, reduciendo el acoplamiento en nuestra aplicación. <em>Server</em> pasa a ser lo que se conoce como <em>Middle Man</em>. Un objeto de una clase intermedia que se encarga de comunicar las peticiones de una clase a otra, que es la tiene el comportamiento que buscamos para desarrollar la lógica deseada.</p>
+<p><img src="/posts/design-principles-la-ley-de-demeter-2.jpg" alt="La Ley de Demeter 2"></p>
+<p>La contra de esta técnica de refactorización es que para cada comportamiento que <em>Client</em> necesite de <em>Delegate</em>, tendremos que crear un método en <em>Server</em> que se encargue de la comunicación entre ambos.</p>
+<p>Veamos ahora la técnica opuesta a <em>Hide Delegate</em>.</p>
+<h2 id="remove-middle-man-eliminar-intermediario">Remove Middle Man (eliminar intermediario)<a href="#remove-middle-man-eliminar-intermediario" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Partiendo del ejemplo anterior en <em>Hide Delegate</em>, <em>Client</em> requiere una lógica que se encuentra en <em>Delegate</em> y <em>Server</em> hace de <em>Middle Man</em> entre ambos.</p>
+<p>Ahora bien, ya sea que nos encontremos en una etapa temprana del diseño de la aplicación o bien tras un tiempo de evolución en la misma mediante diferentes fases de refactoring, podemos encontrarnos con que un <em>Middle Man</em> carece de comportamiento propio y únicamente se encarga de delegar el trabajo a otras clases. Llegado este punto, debemos estudiar si realmente queremos que exista esta clase intermedia o si la eliminamos para reducir una complejidad innecesaria en el diseño de nuestra aplicación.</p>
+<p>Para eliminar el <em>Middle Man</em>, debemos sustituir su dependencia por la de <em>Delegate</em> en la clase <em>Client</em>, cambiando todas las referencias al falso comportamiento del mismo por referencias al comportamiento final correspondiente en <em>Delegate</em>.</p>
+<p>Algunos casos en los que podemos querer mantener la existencia de una clase <em>Middle Man</em> son:</p>
+<ul>
+<li>Si evita una interdependencia entre clases (reducir el acoplamiento)</li>
+<li>Sirve a la implementación de un patrón de diseño, como el <em>Proxy</em> o el <em>Decorator</em>.</li>
+</ul>
+<h2 id="conclusión">Conclusión<a href="#conclusión" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>El uso de <em>Hide Delegate</em> y <em>Middle Man</em> permite cumplir con la <em>Ley de Demeter</em> y asegurarnos de que nuestro diseño mantenga una alta cohesión y un menor acoplamiento, si bien un uso excesivo de esta técnica puede resultar en un crecimiento desmesurado o quizá innecesario de la complejidad de nuestra aplicación, que podemos revertir mediante <em>Remove Middle Man</em>.</p>
+<p>La forma de asegurar que la implementación de ambas técnicas es la mejor solución para cada caso en particular, así como del resto de la arquitectura resultante en nuestro diseño, no es otra que dedicar unas horas semanales a realizar una revisión del análisis de nuestro proyecto, con su correspondiente refactoring de considerarse necesario.</p>
+<p>La reescritura habitual del código no sólo ayudará a que el diseño sea o se acerque lo máximo posible a ser la solución ideal en el momento en el que es escrito el código, sino que ayudará a que el mismo evolucione junto con nuestra lógica de negocio y maximizará la longevidad del proyecto.</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="http://localhost:1313/tags/design-principles">design-principles</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>17-03-2019 20:20 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="http://localhost:1313/posts/bad-smells-olores-leves/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>Bad Smells: Olores leves</span>
+			</a>
+			<a class="prev-post" href="http://localhost:1313/posts/refactoring-cambios-seguros/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Refactoring: Cambios seguros</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>
+			&copy; 2021 <a href="http://localhost:1313">Samuel de Vega</a> &#183; <a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="http://localhost:1313/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

@@ -1,0 +1,1024 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Samuel de Vega</title>
+		<link>http://localhost:1313/posts/</link>
+		<description>Recent content in Posts on Samuel de Vega</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>es-es</language>
+		<lastBuildDate>Sun, 23 Jun 2019 09:51:33 +0000</lastBuildDate>
+		<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Design Principles: Cohesión, acoplamiento y encapsulamiento</title>
+			<link>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
+			<pubDate>Sun, 23 Jun 2019 09:51:33 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
+			<description>Cohesión En el diseño orientado a objetos, se entiende por cohesión (cohesion en inglés) al grado en el que los distintos elementos de un módulo se mantienen unidos a dicho módulo. Es decir, aquellos elementos que pueden entenderse como parte de un concepto que los engloba, deberían estar dentro de este y no dispersos en otros módulos.
+Los elementos convergen hacia su propio módulo y son conocidos y usados sólo por este</description>
+			<content type="html"><![CDATA[<h2 id="cohesión">Cohesión</h2>
+<p>En el diseño orientado a objetos, se entiende por cohesión (<em>cohesion</em> en inglés) al grado en el que los distintos elementos de un módulo se mantienen unidos a dicho módulo. Es decir, aquellos elementos que pueden entenderse como parte de un concepto que los engloba, deberían estar dentro de este y no dispersos en otros módulos.</p>
+<p><img src="/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento-1.png" alt="Cohesion">
+<div style="text-align: center; width: 100%;">
+	
+<div style="display: inline-block; min-width: 300px; width: 50%;">
+	
+Los elementos convergen hacia su propio módulo y son conocidos y usados sólo por este
+
+</div>
+
+</div></p>
+<h2 id="acoplamiento">Acoplamiento</h2>
+<p>Por otra parte, el acoplamiento (<em>coupling</em> en inglés) se refiere al grado en el que los distintos módulos de un sistema son independientes unos de otros. Cuando un módulo accede directamente a un elemento de otro módulo para definir su comportamiento, se dice que ambos módulos están acoplados.</p>
+<p><img src="/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento-2.png" alt="Coupling">
+<div style="text-align: center; width: 100%;">
+	
+<div style="display: inline-block; min-width: 300px; width: 50%;">
+	
+Los elementos tienden hacia otros módulos que los utilizan en vez de sólo por el módulo que los contiene
+
+</div>
+
+</div></p>
+<p>Ambos, cohesión y acoplamiento, pueden entenderse como fuerzas gravitatorias opuestas, dado que la necesidad de relacionarse entre módulos dará como resultado la aparición de estos.</p>
+<p>Así, cuanta mayor cohesión tenga un sistema, menor será su acoplamiento y viceversa.</p>
+<h2 id="encapsulamiento">Encapsulamiento</h2>
+<p>El encapsulamiento (<em>encapsulation</em> en inglés) es una de las guías del diseño orientado a objetos que enuncia que el estado (conjunto del valor de las propiedades) de un objeto nunca debe ser expuesto, de forma que este solo cambie por su propio comportamiento (sus métodos).</p>
+<p>Podemos darnos cuenta de que este concepto propicia la cohesión frente al acoplamiento. Esto es algo que debemos buscar en el diseño de nuestros sistemas. Desde el nivel más básico, el de clase, como a los más abstractos, la interacción entre grupos de clases (entendidos como <em>packages</em> en algunos lenguajes como <em>Java</em>) o incluso en la interacción de nuestro sistema con otros.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Clases Librería</title>
+			<link>http://localhost:1313/posts/bad-smells-clases-libreria/</link>
+			<pubDate>Wed, 20 Mar 2019 18:44:47 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-clases-libreria/</guid>
+			<description>Introducción Una aplicación moderna utilizará clases librería. En ocasiones estas nos ponen en un dilema. Queremos que la librería sea diferente, pero no queremos cambiarla. Incluso cuando es posible cambiar de librería, conlleva riesgos: Afecta a otros clientes y ello implica rehacer nuestros cambios para futuras versiones de la librería.
+Incomplete Library Class Síntomas Estás utilizando una librería y hay una característica que te gustaría que tuviese.
+Qué hacer  Contactar con el creador para ver si puede incorporar la característica.</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>Una aplicación moderna utilizará clases librería. En ocasiones estas nos ponen en un dilema. Queremos que la librería sea diferente, pero no queremos cambiarla. Incluso cuando es posible cambiar de librería, conlleva riesgos: Afecta a otros clientes y ello implica rehacer nuestros cambios para futuras versiones de la librería.</p>
+<h2 id="incomplete-library-class">Incomplete Library Class</h2>
+<h3 id="síntomas">Síntomas</h3>
+<p>Estás utilizando una librería y hay una característica que te gustaría que tuviese.</p>
+<h3 id="qué-hacer">Qué hacer</h3>
+<ul>
+<li>Contactar con el creador para ver si puede incorporar la característica.</li>
+<li>Si son sólo un par de métodos, usa <em>Introduce Foreign Method</em> en la clase cliente de la librería. Esto genera <em>Future Envy</em> pero es insalvable.</li>
+<li>Si son bastantes métodos, usa <em>Introduce Local Extension</em> (creando una subclase de la librería para crear nuevas pseudolibrerías). Usa la nueva clase extendida para avanzar.</li>
+<li>Puedes decidir introducir una capa para envolver la librería.</li>
+</ul>
+<h3 id="recompensas">Recompensas</h3>
+<p>Reduce la duplicidad (cuando puedes reusar el código de la librería en lugar de implementarlo completamente desde cero).</p>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<p>Si varios proyectos incorporan una librería de formas incompatibles, puede suponer un trabajo extra el adaptarse a futuros cambios de la misma.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Alojando el cambio</title>
+			<link>http://localhost:1313/posts/bad-smells-alojando-el-cambio/</link>
+			<pubDate>Wed, 20 Mar 2019 17:31:25 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-alojando-el-cambio/</guid>
+			<description>Introducción Algunos problemas se vuelven más aparentes cuando intentas cambiar el código. Lo ideal es que una decisión de cambio afecte sólo a un único lugar. Cuando esto no sucede, es una señal de duplicidad de código. Detectar estos problemas suele tener otros beneficios como facilitar la testeabilidad del código.
+Los malos olores relativos al cambio simultáneo forzado entre clases son:
+ Divergent Change Shotgun Surgery Parallel Inheritance Hierarchies Combinatorial Explosion  Divergent Change Síntomas Una misma clase necesita cambiar por diferentes motivos.</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>Algunos problemas se vuelven más aparentes cuando intentas cambiar el código. Lo ideal es que una decisión de cambio afecte sólo a un único lugar. Cuando esto no sucede, es una señal de duplicidad de código. Detectar estos problemas suele tener otros beneficios como facilitar la testeabilidad del código.</p>
+<p>Los malos olores relativos al cambio simultáneo forzado entre clases son:</p>
+<ul>
+<li><a href="#divergent-change">Divergent Change</a></li>
+<li><a href="#shotgun-surgery">Shotgun Surgery</a></li>
+<li><a href="#parallel-inheritance-hierarchies">Parallel Inheritance Hierarchies</a></li>
+<li><a href="#combinatorial-explosion">Combinatorial Explosion</a></li>
+</ul>
+<h2 id="divergent-change">Divergent Change</h2>
+<h3 id="síntomas">Síntomas</h3>
+<p>Una misma clase necesita cambiar por diferentes motivos.</p>
+<h3 id="qué-hacer">Qué hacer</h3>
+<ul>
+<li>Si la clase encuentra un objeto y hace algo con él, deja que el cliente encuentre el objeto y pásaselo o deja que la clase retorne un valor que el cliente use.</li>
+<li>Usa <em>Extract Class</em> para crear clases separadas para cada decisión.</li>
+<li>Si varias clases están compartiendo el mismo tipo de decisiones, puedes unificarlas en una nueva clase con <em>Extract Superclass</em> o <em>Extract Subclass</em>. Llegado el caso estas clases pueden formar una capa.</li>
+</ul>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación (al expresar mejor la intención).</li>
+<li>Mejora la estructura para futuros cambios.</li>
+</ul>
+<h2 id="shotgun-surgery">Shotgun Surgery</h2>
+<h3 id="síntomas-1">Síntomas</h3>
+<p>Hacer un cambio supone modificar varias clases.</p>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<ul>
+<li>Identifica la clase que debería contener el grupo de cambios. Puede ser una clase existente o que tengas que crearla con <em>Extract Class</em>.</li>
+<li>Usa <em>Move Field</em> y <em>Move Method</em> para llevar la funcionalidad a la clase elegida. Una vez que las clases restantes sean lo suficientemente simples, puedes usar <em>Inline Class</em> para eliminarlas.</li>
+</ul>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Mejora la comunicación.</li>
+<li>Mejora la mantenibilidad (los próximos cambios estarán más localizados).</li>
+</ul>
+<h2 id="parallel-inheritance-hierarchies">Parallel Inheritance Hierarchies</h2>
+<h3 id="síntomas-2">Síntomas</h3>
+<ul>
+<li>Crear una nueva subclase en una jerarquía te supone crear una clase relacionada en otra jerarquía.</li>
+<li>Encuentras dos jerarquías donde las superclases tienen los mismos prefijos (los nombres reflejan el requisito para coordinarlas). Este es un caso especial de <em>Shotgun Surgery</em>.</li>
+</ul>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<p>Usa <em>Move Field/Method</em> para redistribuir las características de una forma en que puedas eliminar una de las jerarquías.</p>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Mejora la comunicación.</li>
+<li>Puede reducir el tamaño.</li>
+</ul>
+<h2 id="combinatorial-explosion">Combinatorial Explosion</h2>
+<h3 id="síntomas-3">Síntomas</h3>
+<ul>
+<li>Introducir una nueva clase supone introducir múltiples clases en varios sitios de una jerarquía.</li>
+<li>Cada capa de la jerarquía usa un conjunto común de palabras (informa de estilo, mutabilidad, etc.).</li>
+</ul>
+<h3 id="qué-hacer-3">Qué hacer</h3>
+<ul>
+<li>Si las cosas no han ido demasiado lejos, puedes usar <em>Replace Inheritance with Delegation</em> (al crear una misma interfaz para las variaciones, puedes usar el patrón <em>Decorator</em>.</li>
+<li>Si la situación se ha vuelto demasiado compleja, se requieren grandes refactorizaciones como <em>Tease Apart Inheritance</em>.</li>
+</ul>
+<h3 id="recompensas-3">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Reduce el tamaño.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Responsabilidad</title>
+			<link>http://localhost:1313/posts/bad-smells-responsabilidad/</link>
+			<pubDate>Wed, 20 Mar 2019 15:02:42 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-responsabilidad/</guid>
+			<description>Introducción El equilibrio en la responsabilidad entre objetos es difícil de conseguir. Una de las virtudes de la refactorización es que nos permite experimentar con diferentes ideas de una forma segura y nos permite cambiar de idea.
+Hay herramientas que nos ayudan a decidir como trabajan los objetos entre sí, como los patrones de diseño o las cartas CRC.
+Las refactorizaciones suelen ser reversibles y pueden compensar dos opciones.
+Los malos olores que pueden aparecer por una mala separación de las responsabilidades son:</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>El equilibrio en la responsabilidad entre objetos es difícil de conseguir. Una de las virtudes de la refactorización es que nos permite experimentar con diferentes ideas de una forma segura y nos permite cambiar de idea.</p>
+<p>Hay herramientas que nos ayudan a decidir como trabajan los objetos entre sí, como los <em>patrones de diseño</em> o las <em>cartas CRC</em>.</p>
+<p>Las refactorizaciones suelen ser reversibles y pueden compensar dos opciones.</p>
+<p>Los malos olores que pueden aparecer por una mala separación de las responsabilidades son:</p>
+<ul>
+<li><a href="#feature-envy">Feature Envy</a></li>
+<li><a href="#innapropiate-intimacy-general-form">Innapropiate Intimacy (General Form)</a></li>
+<li><a href="#message-chains">Message Chains</a></li>
+<li><a href="#middle-man">Middle Man</a></li>
+</ul>
+<h2 id="feature-envy">Feature Envy</h2>
+<h3 id="síntomas">Síntomas</h3>
+<p>Un método parece más enfocado a manipular los datos de otra clase más que los suyos. Esto suele generar duplicidad ya que varios clientes realizan las mismas acciones sobre los datos de otro objeto o este es tocado varias veces en una misma fila.</p>
+<h3 id="qué-hacer">Qué hacer</h3>
+<p>Utiliza <em>Move Method</em> para poner las acciones en la clase correcta. Es probable que tengas que utilizar primero <em>Extract Method</em> para aislar la parte de código que te interesa mover.</p>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Suele mejorar la comunicación.</li>
+<li>Puede exponer posteriores oportunidades de refactorización.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<p>En ocasiones el comportamiento está puesto intencionadamente en la clase «incorrecta». Por ejemplo, algunos patrones de diseño, como el <em>Strategy</em> o <em>Visitor</em> ponen el comportamiento en una clase separada y así poder realizar cambios de forma independiente. Si utilizas <em>Move Method</em> para ponerlo de vuelta, puedes acabar uniendo cosas que deberían cambiar de forma independiente.</p>
+<h2 id="innapropiate-intimacy-general-form">Innapropiate Intimacy (General Form)</h2>
+<h3 id="síntomas-1">Síntomas</h3>
+<p>Una clase accede a las partes internas de otra clase independiente.</p>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<ul>
+<li>Si dos clases independientes están enrredadas, usa <em>Move Method</em> y <em>Move Field</em> para poner cada cosa en su lugar.</li>
+<li>Si las partes enrredadas parecen ser una clase perdida, utiliza <em>Extract Class</em> y <em>Hide Delegate</em> para introducir la nueva clase.</li>
+<li>Si ambas clases se apuntan mutuamente, usa <em>Change Bidirectional Reference to Unidirectional</em> para crear una dependencia unidireccional.</li>
+<li>Si una subclase está demasiado acoplada a su generalización:
+<ul>
+<li>Si está accediendo a los campos de la generalización de forma incontrolada, usa <em>Self Encapsulate Field</em>.</li>
+<li>Si la generalización puede definir un algoritmo general que pueda ser usado por la subclase, usa <em>Form Template Method</em>.</li>
+<li>Si la generalización y la subclase necesitan estar aún más desacopladas, usa <em>Replace Inheritance with Delegation</em>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Suele mejorar la comunicación.</li>
+<li>Puede reducir el tamaño.</li>
+</ul>
+<h2 id="message-chains">Message Chains</h2>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<p>Si las manipulaciones pertenecen al objeto que las recibe, utiliza <em>Extract Method</em> y <em>Move Method</em> para llevarlas a él.</p>
+<p>Usa <em>Hide Delegate</em> para hacer que el método dependa de un único objeto. Esto puede implicar que se repita la delegación a lo largo de los objetos relacionados.</p>
+<h3 id="recompensas-2">Recompensas</h3>
+<p>Puede reducir o exponer duplicidad.</p>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<p>Esta refactorización es un equilibrio. Si aplicas demasiado <em>Hide Delegate</em>, puedes acabar encontrando en que todas las clases están tan ocupadas delegando que ninguna parece estar realizando el trabajo. A veces es menos confuso mantener una cadena de mensajes.</p>
+<h2 id="middle-man">Middle Man</h2>
+<h3 id="qué-hacer-3">Qué hacer</h3>
+<ul>
+<li>En general, aplica <em>Remove Middle Man</em> haciendo que el cliente llame a la clase delegada directamente.</li>
+<li>Si la clase delegada es contenida por el <em>Middle Man</em> o es inmutable, el <em>Middle Man</em> no tiene comportamiento a añadir y puede ser visto como un ejemplo de la delegación, usa <em>Replace Delegation with Inheritance</em>.</li>
+</ul>
+<h3 id="recompensas-3">Recompensas</h3>
+<ul>
+<li>Reduce el tamaño.</li>
+<li>Puede mejorar la comunicación.</li>
+</ul>
+<h3 id="contraindicaciones-2">Contraindicaciones</h3>
+<ul>
+<li>Algunos patrones (por ejemplo <em>Proxy</em> o <em>Decorador</em>) crean delegados intencionadamente. No elimines un <em>Middle Man</em> que existe por un motivo.</li>
+<li><em>Middle Man</em> y <em>Message Chain</em> se equilibran entre sí.</li>
+<li>Los delegados proveen una especie de fachada, dejando al cliente permanecer ignorante a los detalles de los mensajes y las estructuras. Eliminar un <em>Middle Man</em> puede exponer a los clientes demasiada información.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Herencia</title>
+			<link>http://localhost:1313/posts/bad-smells-herencia/</link>
+			<pubDate>Wed, 20 Mar 2019 12:47:12 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-herencia/</guid>
+			<description>Introducción La relación entre una clase y su subclase suele comenzar siendo simple pero se va volviendo más complicada con el paso del tiempo. Una subclase a menudo depende de su generalización más estrechamente que una clase ajena, pero esto puede ser demasiado.
+La clave es decidir entre lo que una clase es y lo que una clase tiene. La estructura de una clase suele comenzar con herencia y con el paso del tiempo se mueve más hacia la composición.</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>La relación entre una clase y su subclase suele comenzar siendo simple pero se va volviendo más complicada con el paso del tiempo. Una subclase a menudo depende de su generalización más estrechamente que una clase ajena, pero esto puede ser demasiado.</p>
+<p>La clave es decidir entre lo que una clase es y lo que una clase tiene. La estructura de una clase suele comenzar con herencia y con el paso del tiempo se mueve más hacia la composición.</p>
+<p>Los malos olores emergentes por un mal uso de la herencia son:</p>
+<ul>
+<li><a href="#refused-bequest">Refused Bequest</a></li>
+<li><a href="#inappropiate-intimacy-subclass-form">Inappropiate Intimacy (Subclass Form)</a></li>
+<li><a href="#lazy-class">Lazy Class</a></li>
+</ul>
+<h2 id="refused-bequest">Refused Bequest</h2>
+<h3 id="síntomas">Síntomas</h3>
+<ul>
+<li>Una clase hereda de una generalización, pero lanza una excepción en lugar de dar soporte a un método (<em>honest refusal</em>).</li>
+<li>Una clase hereda de una generalización, pero un método heredado no funciona cuando es llamado en dicha clase (<em>implicit refusal</em>).</li>
+<li>Los clientes tienden a acceder a la clase más que manejar la generalización.</li>
+<li>La herencia no tiene sentido. La subclase no es un ejemplo de la generalización.</li>
+</ul>
+<h3 id="qué-hacer">Qué hacer</h3>
+<ul>
+<li>Dejarlo tal y como está, si no es confuso.</li>
+<li>Si no hay motivos para compartir una relación de clases, utiliza <em>Replace Inheritance with Delegation</em>.</li>
+<li>Si la relación generalización-subclase no tiene sentido, puedes crear una nueva subclase con <em>Extract Subclass</em>, <em>Push Down Field</em> y <em>Push Down Method</em>. Deja que esta nueva clase tenga el comportamiento no rechazado y cambia los clientes de la generalización que sean clientes de esta nueva clase. Con ello, la generalización no necesita mencionar dicho comportamiento y podrás eliminarlo de ella y de la subclase inicial. La generalización inicial pasa a ser una subclase de la nueva clase.</li>
+</ul>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Mejora la testeabilidad.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<p>A veces un caso de <em>Refused Bequest</em> es usado para prevenir una explosión de nuevos tipos.</p>
+<h2 id="inappropiate-intimacy-subclass-form">Inappropiate Intimacy (Subclass Form)</h2>
+<h3 id="síntomas-1">Síntomas</h3>
+<p>Una clase accede a partes internas que deberían ser privadas de su generalización. Si esto ocurre entre clases separadas, se conoce como <em>General Form</em>.</p>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<p>Si la subclase está accediendo a campos de la generalización de una forma incontrolada, utiliza <em>Self Encapsulate Field</em>.</p>
+<p>Si la generalización puede definir un algoritmo general que pueda ser introducido por la subclase, entonces utiliza <em>Form Template Method</em>.</p>
+<p>Si la generalización y la subclase necesitan estar aún más desacopladas, entonces utiliza <em>Replace Inheritance with Delegation</em>.</p>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Suele mejorar la comunicación.</li>
+<li>Puede reducir el tamaño.</li>
+</ul>
+<h2 id="lazy-class">Lazy Class</h2>
+<h3 id="síntomas-2">Síntomas</h3>
+<p>Una clase apenas tiene comportamiento. Sus generalizaciones, subclases o clientes realizan todo el trabajo aparentemente asociado y no hay suficiente comportamiento en la clase que justifique su existencia.</p>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<ul>
+<li>Si sus generalizaciones o subclases parecen el lugar adecuado para albergar el comportamiento de dicha clase, almacénalo dentro de una de ellas con <em>Colapse Hierarchy</em>.</li>
+<li>En caso contrario, encapsula su comportamiento dentro de su cliente con <em>Inline Class</em>.</li>
+</ul>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Reduce el tamaño.</li>
+<li>Mejora la comunicación.</li>
+<li>Mejora la simplicidad.</li>
+</ul>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<p>A veces una <em>Lazy Class</em> existe para comunicar una intención. Debes buscar el equilibrio entre comunicación y simplicidad.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Datos</title>
+			<link>http://localhost:1313/posts/bad-smells-datos/</link>
+			<pubDate>Wed, 20 Mar 2019 08:09:48 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-datos/</guid>
+			<description>Introducción Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.
+Los malos olores resultantes de un mal uso de las estructuras de datos son:
+ Primitive Obsession Data Class Data Clump  Primitive Obsession Síntomas  Uso de primitivos o casi primitivos (int, float, String, etc.). Constantes y enumeraciones representando pequeños enteros. Constantes de tipo String representando nombres de campos.</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.</p>
+<p>Los malos olores resultantes de un mal uso de las estructuras de datos son:</p>
+<ul>
+<li><a href="#primitive-obsession">Primitive Obsession</a></li>
+<li><a href="#data-class">Data Class</a></li>
+<li><a href="#data-clump">Data Clump</a></li>
+</ul>
+<h2 id="primitive-obsession">Primitive Obsession</h2>
+<h3 id="síntomas">Síntomas</h3>
+<ul>
+<li>Uso de primitivos o casi primitivos (<em>int</em>, <em>float</em>, <em>String</em>, etc.).</li>
+<li>Constantes y enumeraciones representando pequeños enteros.</li>
+<li>Constantes de tipo <em>String</em> representando nombres de campos.</li>
+</ul>
+<h3 id="qué-hacer">Qué hacer</h3>
+<p>Para <em>Missing Class</em>:</p>
+<ul>
+<li>Revisar <em>Data Clump</em>, porque el primitivo suele ser encapsulado para localizar el problema.</li>
+<li>Aplica <em>Replace Data Value with Object</em> para crear valores de datos de primera clase.</li>
+</ul>
+<p>Para <em>Simulated Types</em>:</p>
+<ul>
+<li>Si no hay comportamiento que sea condicional, entonces es más un enumerador, así que utiliza <em>Replace Type Code with Class</em>.</li>
+<li>Si cambia o la clase ya tiene subclase, utiliza <em>Replace Type Code with State/Strategy</em>.</li>
+</ul>
+<p>Para <em>Simulated Field Accessors</em>:</p>
+<p>Si el primitivo es usado para tratar ciertos elementos array, aplica <em>Replace Array with Object</em>.</p>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+<li>Mejora la flexibilidad.</li>
+<li>Suele exponer la necesidad de otras refactorizaciones.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<ul>
+<li>Suele haber problemas de rendimiento o dependencia que te detengan en localizarlo.</li>
+<li>En ocasiones un <em>Map</em> suele ser utilizado en lugar de un objeto con campos fijos, utilizando los nombres de los campos como índices. Esto puede reducir el acoplamiento de la estructura de un objeto simple, pero con un coste en el rendimiento, la seguridad del tipado y la claridad.</li>
+</ul>
+<h2 id="data-class">Data Class</h2>
+<h3 id="síntomas-1">Síntomas</h3>
+<p>La clase consiste únicamente en datos públicos, o <em>getters</em> y <em>setters</em>. Esto hace al cliente depender de la mutabilidad y representación de la clase.</p>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<ol>
+<li>Aplica <em>Encapsulate Field</em> al bloque para sólo permitir el acceso a los campos mediante <em>getters</em> y <em>setters</em>.</li>
+<li>Aplica <em>Remove Setting Methods</em> a todos los métodos que puedas.</li>
+<li>Utiliza <em>Encapsulate Collection</em> para eliminar el acceso directo a alguno de los campos de tipo colección.</li>
+<li>Mira en cada cliente del objeto. Probablemente encontrarás que los clientes acceden a los campos y manipulan los resultados, cuando lo debería estar haciendo la propia clase.</li>
+<li>Tras analizarlo verás que tienes muchos métodos similares en la clase. Utiliza entonces refactorizaciones como <em>Rename Method</em>, <em>Extract Method</em>, <em>Add Parameter</em> o <em>Remove Parameter</em> para armonizar las firmas y eliminar la duplicidad.</li>
+<li>No deberían de necesitarse más accesos a los campos porque los métodos movidos cubren su uso real. Utiliza <em>Hide Method</em> para eliminar el acceso a los <em>getters</em> y <em>setters</em>.</li>
+</ol>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<ul>
+<li>En ocasiones el encapsulamiento de campos puede tener un coste en el rendimiento.</li>
+<li>Algunos mecanismos de persistencia se basan en los métodos <em>getters/setters</em> para definir cuales serán los campos de los que obtendrán los datos a cargar o guardar. (Ver <em>Mementos, Gamma’s Design Patterns</em>). También se puede encapsular esta clase en otra contenedora.</li>
+</ul>
+<h2 id="data-clump">Data Clump</h2>
+<h3 id="síntomas-2">Síntomas</h3>
+<ul>
+<li>Los mismos dos o tres elementos aparecen juntos frecuentemente en clases y listas de parámetros.</li>
+<li>El código declara grupos de campos y métodos juntos dentro de la clase.</li>
+<li>Los grupos o nombres de campos empiezan o terminan de forma similar.</li>
+</ul>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<ul>
+<li>Si los elementos son campos en una clase, utiliza <em>Extract Class</em> para llevarlos a una nueva clase.</li>
+<li>Si los valores están juntos en la firma de un método, utiliza <em>Introduce Parameter Object</em> para extraer el nuevo objeto.</li>
+<li>Mira las llamadas que pasan los elementos desde el nuevo objeto para ver si puedes aplicarles <em>Preserve Whole Object</em>.</li>
+<li>Mira los usos de los elementos. Suelen haber oportunidades de utilizar <em>Move Method</em> y otras refactorizaciones para mover esos usos al nuevo objeto, identificando <em>Data Class</em>.</li>
+</ul>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+<li>Suele reducir el tamaño.</li>
+</ul>
+<h3 id="contraindicaciones-2">Contraindicaciones</h3>
+<ul>
+<li>Ocasionalmente, pasar un objeto completo puede introducir una dependencia. En este caso pasa únicamente las piezas que necesites.</li>
+<li>Puede repercutir negativamente en el rendimiento.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Lógica condicional</title>
+			<link>http://localhost:1313/posts/bad-smells-logica-condicional/</link>
+			<pubDate>Tue, 19 Mar 2019 21:46:06 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-logica-condicional/</guid>
+			<description>Introducción  Es difícil de razonar ya que tenemos que considerar múltiples caminos a través del código. Es tentador añadir casos de uso especiales en lugar de desarrollar un caso de uso general. A veces es usada como un mal sustituto de mecanismos orientados a objetos.  Los malos olores derivados de un mal uso de la lógica condicional son:
+ Null Check Complicated Boolean Expression Special Case Simulated Inheritance (Switch Statement)  Null Check Qué hacer  Si hay un valor por defecto razonable, utilizalo.</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<ul>
+<li>Es difícil de razonar ya que tenemos que considerar múltiples caminos a través del código.</li>
+<li>Es tentador añadir casos de uso especiales en lugar de desarrollar un caso de uso general.</li>
+<li>A veces es usada como un mal sustituto de mecanismos orientados a objetos.</li>
+</ul>
+<p>Los malos olores derivados de un mal uso de la lógica condicional son:</p>
+<ul>
+<li><a href="#null-check">Null Check</a></li>
+<li><a href="#complicated-boolean-expression">Complicated Boolean Expression</a></li>
+<li><a href="#special-case">Special Case</a></li>
+<li><a href="#simulated-inheritance-switch-statement">Simulated Inheritance (Switch Statement)</a></li>
+</ul>
+<h2 id="null-check">Null Check</h2>
+<h3 id="qué-hacer">Qué hacer</h3>
+<ul>
+<li>Si hay un valor por defecto razonable, utilizalo.</li>
+<li>Sino, introduce un <em>Null Object</em> para crear un valor por defecto que puedas usar.</li>
+</ul>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Reduce la duplicación.</li>
+<li>Reduce los errores lógicos y excepciones.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<ul>
+<li>Si el <em>null</em> ocurre en un único lugar, no vale la pena aislarlo en un <em>Null Object</em>.</li>
+<li>Los <em>Null Object</em>s necesitan tener un comportamiento seguro para los métodos que aportan. Si no puedes asegurarlo, no los utilices.</li>
+<li>Ten cuidado con los casos donde <em>null</em> significa más de una cosa en contextos diferentes. Puedes querer reemplazarlos por más de un tipo de <em>Null Object</em>.</li>
+</ul>
+<h2 id="complicated-boolean-expression">Complicated Boolean Expression</h2>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<p>Aplica la ley de DeMorgan.</p>
+<h3 id="recompensas-1">Recompensas</h3>
+<p>Mejora la comunicación.</p>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<p>Puede que encuentres otras formas de simplificar la expresión o que al reescribirla comuniques más con menos código.</p>
+<h2 id="special-case">Special Case</h2>
+<h3 id="síntomas">Síntomas</h3>
+<ul>
+<li>Declaraciones complejas de <em>if</em>.</li>
+<li>Comprobación de valores particulares antes de hacer algo (especialmente comparaciones con constantes o enumeraciones).</li>
+</ul>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<ul>
+<li>Si los condicionales están reemplazando un polimorfismo, utiliza <em>Replace Conditional with Polymorphism</em>.</li>
+<li>Si el <em>if</em> y el <em>then</em> son similares, quizá quieras reescribirlos para que el mismo fragmento de código pueda generar los resultados adecuados para cada caso y eliminar el condicional.</li>
+</ul>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+<h3 id="contraindicaciones-2">Contraindicaciones</h3>
+<ul>
+<li>No puedes eliminar el caso base de una expresión recursiva.</li>
+<li>A veces un <em>if</em> es simplemente la mejor forma de hacer algo.</li>
+</ul>
+<h2 id="simulated-inheritance-switch-statement">Simulated Inheritance (Switch Statement)</h2>
+<h3 id="síntomas-1">Síntomas</h3>
+<ul>
+<li>El código utiliza un <em>switch</em> (especialmente en un <em>type field</em>).</li>
+<li>El código tiene una serie de <em>if</em> en una línea (especialmente si comparan contra el mismo valor).</li>
+<li>El código usa <em>instanceof</em> (o equivalente) para decidir con qué tipo está trabajando.</li>
+</ul>
+<h3 id="qué-hacer-3">Qué hacer</h3>
+<p>No simules herencia. Utiliza mecanismos nativos del propio lenguaje.</p>
+<p>Si un <em>switch</em> para la misma condición aparece en diferentes sitios, normalmente está utilizando un <em>type code</em>. Reemplázalo con polimorfismo:</p>
+<ol>
+<li>Saca fuera el código para cada rama con <em>Extract Method</em>.</li>
+<li>Mueve el código a la clase correcta con <em>Move Method</em>.</li>
+<li>Configura la estructura de herencia con <em>Replace Type Code with Subclass</em> o <em>Replace Type Code with State/Strategy</em>.</li>
+<li>Elimina los condicionales con <em>Replace Conditional with Polymorphism</em>.</li>
+</ol>
+<p>Si las condiciones ocurren dentro de una única clase, puedes reemplazar la lógica condicional con <em>Replace Parameter with Explicit Method</em> o <em>Introduce Null Object</em>.</p>
+<h3 id="recompensas-3">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+<h3 id="contraindicaciones-3">Contraindicaciones</h3>
+<ul>
+<li>A veces un <em>switch</em> es la forma más simple de expresar una lógica. Si está haciendo algo simple en un único sitio, no hace falta que lo aisles en una clase a parte. Esto suele ocurrir en puntos del sistema que se comuniquen con partes no orientadas a objetos, conocidas como <em>Data Access/Transfer Objects</em> (DAO/DTO).</li>
+<li>Un único <em>switch</em> puede ser utilizado en un patrón <em>Factory</em> o <em>Abstract Factory</em>.</li>
+<li>Un <em>switch</em> puede ser utilizado en varios lugares relacionados para controlar una máquina de estados. Decide entonces si tiene más sentido utilizar el <em>switch</em> o el patrón <em>State</em>.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Duplicación</title>
+			<link>http://localhost:1313/posts/bad-smells-duplicacion/</link>
+			<pubDate>Tue, 19 Mar 2019 21:29:35 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-duplicacion/</guid>
+			<description>Introducción La duplicación causa los siguientes problemas:
+ Hay más código que mantener. Las partes que varían están enterradas bajo las partes que se mantienen fijas. Variaciones en el código a menudo esconden similitudes más profundas. Hay tendencia a reparar un bug en un lugar y dejar otros idénticos sin reparar en otro sitio.  La duplicación del código suele ser síntoma de varios malos olores, como son:
+ Magic Number Duplicated Code Alternative Classes with Different Interfaces  Magic Number Qué hacer Utiliza Replace Magic Number with Symbolic Constant para el valor específico.</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>La duplicación causa los siguientes problemas:</p>
+<ul>
+<li>Hay más código que mantener.</li>
+<li>Las partes que varían están enterradas bajo las partes que se mantienen fijas.</li>
+<li>Variaciones en el código a menudo esconden similitudes más profundas.</li>
+<li>Hay tendencia a reparar un bug en un lugar y dejar otros idénticos sin reparar en otro sitio.</li>
+</ul>
+<p>La duplicación del código suele ser síntoma de varios malos olores, como son:</p>
+<ul>
+<li><a href="#magic-number">Magic Number</a></li>
+<li><a href="#duplicated-code">Duplicated Code</a></li>
+<li><a href="#alternative-classes-with-different-interfaces">Alternative Classes with Different Interfaces</a></li>
+</ul>
+<h2 id="magic-number">Magic Number</h2>
+<h3 id="qué-hacer">Qué hacer</h3>
+<p>Utiliza <em>Replace Magic Number with Symbolic Constant</em> para el valor específico.
+Si los valores son <em>strings</em>, puede que te interese aislarlos en alguna estructura (clase <em>wrapper</em>, <em>maps</em>, etc.)</p>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Reduce la duplicidad.</li>
+<li>Mejora la comunicación.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<p>Los tests suelen ser más legibles cuando simplemente utilizan variables.</p>
+<h2 id="duplicated-code">Duplicated Code</h2>
+<h3 id="síntomas">Síntomas</h3>
+<ul>
+<li><strong>Fácil de ver</strong>: Dos fragmentos de código son prácticamente idénticos.</li>
+<li><strong>Difícil de ver</strong>: Dos fragmentos de código tienen prácticamente el mismo efecto.</li>
+</ul>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<p>Si la duplicación se encuentra dentro de uno o dos métodos de la misma clase, utiliza <em>Extract Method</em> para mover la parte común a un método separado.</p>
+<p>Si la duplicación se encuentra entre dos clases gemelas, utiliza <em>Extract Method</em> para crear una rutina única y luego usa <em>Pull Up Field/Method</em> para juntar las partes comunes. Luego podrás utilizar <em>Form Template Method</em> para crear un algoritmo común en el padre y pasos únicos en los hijos.</p>
+<p>Si la duplicación se encuentra en dos clases no relacionadas, extrae la parte común en una nueva clase con <em>Extract Class</em>, o identifica si el olor es <em>Feature Envy</em> y por tanto el código duplicado pertenece únicamente a una de las dos clases.</p>
+<p>Si en ambos lugares el código no es idéntico pero tiene el mismo efecto, decide cual es mejor y utiliza <em>Substitute Algorithm</em> para quedarte con una única copia.</p>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Reduce la duplicación.</li>
+<li>Reduce el tamaño.</li>
+<li>Puede llevar a una mejor abstracción y mayor flexibilidad.</li>
+</ul>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<ul>
+<li>En raras ocasiones puedes concluir que la duplicación es mejor para comunicar la intención y mantenerla.</li>
+<li>Puedes tener duplicación que es mera coincidencia y reducirla puede confundir a quien lo lea.</li>
+</ul>
+<h2 id="alternative-classes-with-different-interfaces">Alternative Classes with Different Interfaces</h2>
+<h3 id="síntomas-1">Síntomas</h3>
+<p>Dos clases parecen estar haciendo el mismo trabajo pero tienen nombres de métodos distintos.</p>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<ol>
+<li>Utiliza <em>Rename Method</em> para dejarlos similares.</li>
+<li>Utiliza <em>Move Method</em>, <em>Add Parameter</em> y <em>Parameterize Method</em> para hacer los protocolos (firmas y enfoques) similares.</li>
+<li>Si ambas clases son similares pero no identicas, utiliza <em>Extract Superclass</em> una vez que ambas estén en concordancia.</li>
+<li>Elimina la clase extra si es posible.</li>
+</ol>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Reduce la duplicación.</li>
+<li>Puede reducir el tamaño.</li>
+<li>Puede mejorar la comunicación.</li>
+</ul>
+<h3 id="contraindicaciones-2">Contraindicaciones</h3>
+<p>En ocasiones las dos clases no pueden ser cambiadas (si están en librerías diferentes, por ejemplo). Cada librería puede tener su propia visión para un mismo concepto, pero puedes verte sin una buena forma de unificarlos.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Complejidad innecesaria</title>
+			<link>http://localhost:1313/posts/bad-smells-complejidad-innecesaria/</link>
+			<pubDate>Tue, 19 Mar 2019 21:14:35 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-complejidad-innecesaria/</guid>
+			<description>&amp;ldquo;Everything should be made as simple as possible. But not simpler.&amp;rdquo;
+&amp;ndash; Albert Einstein La complejidad innecesaria del código puede presentarse en los siguientes malos olores:
+ Dead Code Speculative Generality  Introducción Sigue el principio YAGNI (You Aren’t Gonna Need It).
+Dead Code Qué hacer Elimina el código no utilizado y los tests asociados.
+Recompensas  Reduce el tamaño. Mejora la comunicación. Mejora la simplicidad.  Contraindicaciones No elimines código que pueda ser utilizado para dar soporte a clientes aunque no sea utilizado dentro de tu framework.</description>
+			<content type="html"><![CDATA[<blockquote>
+<p>&ldquo;Everything should be made as simple as possible. But not simpler.&rdquo;</p>
+<p>&ndash; <!-- raw HTML omitted -->Albert Einstein<!-- raw HTML omitted --></p>
+</blockquote>
+<p>La complejidad innecesaria del código puede presentarse en los siguientes malos olores:</p>
+<ul>
+<li><a href="#dead-code">Dead Code</a></li>
+<li><a href="#speculative-generality">Speculative Generality</a></li>
+</ul>
+<h2 id="introducción">Introducción</h2>
+<p>Sigue el principio <em>YAGNI</em> (You Aren’t Gonna Need It).</p>
+<h2 id="dead-code">Dead Code</h2>
+<h3 id="qué-hacer">Qué hacer</h3>
+<p>Elimina el código no utilizado y los tests asociados.</p>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Reduce el tamaño.</li>
+<li>Mejora la comunicación.</li>
+<li>Mejora la simplicidad.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<p>No elimines código que pueda ser utilizado para dar soporte a clientes aunque no sea utilizado dentro de tu framework.</p>
+<h2 id="speculative-generality">Speculative Generality</h2>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<ul>
+<li>Para clases innecesarias:
+<ul>
+<li>Si los padres o hijos de la clase parecen el sitio correcto para el comportamiento, mételo dentro de uno de ellos con <em>Colapse Hierarchy</em>.</li>
+<li>En otro caso, mételo dentro del <em>caller</em> con <em>Inline Class</em>.</li>
+</ul>
+</li>
+<li>Para métodos innecesarios, utiliza <em>Inline Method</em> o <em>Remove Method</em>.</li>
+<li>Para un campo innecesario, asegúrate de que no hay referencias al mismo y elimínalo.</li>
+<li>Para un parámetro innecesario, utiliza <em>Remove Parameter</em>.</li>
+</ul>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Reduce el tamaño.</li>
+<li>Mejora la comunicación.</li>
+<li>Mejora la simplicidad.</li>
+</ul>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<ul>
+<li>No elimines código que pueda ser utilizado para dar soporte a clientes aunque no sea utilizado dentro de tu framework.</li>
+<li>Si algunos elementos son utilizados por los tests y le dan a este información privilegiada sobre la clase, puede ser indicativo de que no estás teniendo en cuenta una abstracción que puedas testear de forma independiente.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Nombres</title>
+			<link>http://localhost:1313/posts/bad-smells-nombres/</link>
+			<pubDate>Tue, 19 Mar 2019 21:02:05 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-nombres/</guid>
+			<description>Introducción Algunas herramientas para escoger nombres pueden ser:
+ Diccionarios de proyectos. Vocabularios del dominio, ontologías y lenguajes. Metáforas de Xtreme Programming.  Los buenos nombres cumplen varias funciones:
+ Proveen de un vocabulario para discutir nuestro dominio. Comunican intención. Aportan expectativas sobre cómo funciona el sistema. Se apoyan entre sí en un sistema de nombres.  Para elegir buenos nombres, utiliza las siguientes guías:
+ Usa verbos para mutators (modifican estado) y nombres o adjetivos para accesors (retornan estado).</description>
+			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
+<p>Algunas herramientas para escoger nombres pueden ser:</p>
+<ul>
+<li>Diccionarios de proyectos.</li>
+<li>Vocabularios del dominio, ontologías y lenguajes.</li>
+<li>Metáforas de <em>Xtreme Programming</em>.</li>
+</ul>
+<p>Los buenos nombres cumplen varias funciones:</p>
+<ul>
+<li>Proveen de un vocabulario para discutir nuestro dominio.</li>
+<li>Comunican intención.</li>
+<li>Aportan expectativas sobre cómo funciona el sistema.</li>
+<li>Se apoyan entre sí en un sistema de nombres.</li>
+</ul>
+<p>Para elegir buenos nombres, utiliza las siguientes guías:</p>
+<ul>
+<li>Usa verbos para <em>mutators</em> (modifican estado) y nombres o adjetivos para <em>accesors</em> (retornan estado).</li>
+<li>Usa la misma palabra para expresar conceptos similares y palabras distintas para expresar conceptos distintos.</li>
+<li>Prefiere nombres de una sola palabra.</li>
+<li>Valora más la comunicación.</li>
+</ul>
+<p>Entre los malos olores que podemos encontrar dentro de una clase, aquellos de una gravedad moderada son los relacionados con los nombres:</p>
+<ul>
+<li><a href="#type-embedded-in-name">Type Embedded in Name</a></li>
+<li><a href="#uncommunicative-name">Uncommunicative Name</a></li>
+<li><a href="#inconsistent-names">Inconsistent Names</a></li>
+</ul>
+<h2 id="type-embedded-in-name">Type Embedded in Name</h2>
+<h3 id="qué-hacer">Qué hacer</h3>
+<p>Utiliza <em>Rename Method/Field/Constant</em> sobre un nombre para comunicar intención sin estar tan ligado a un tipo.</p>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede facilitar la identificación de duplicidad.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<ul>
+<li>Manten el tipo en el nombre cuando tengas una misma clase de operación para distintos tipos relacionados.</li>
+<li>No elimines el tipo si trabajas bajo un estándar utilizado por el equipo.</li>
+</ul>
+<h2 id="uncommunicative-name">Uncommunicative Name</h2>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<p>Utiliza <em>Rename Method/Field/Constant</em> para darle un mejor nombre.</p>
+<h3 id="recompensas-1">Recompensas</h3>
+<p>Mejora la comunicación.</p>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<ul>
+<li>El uso de nombres como <em>i/k/j</em> para índices de iteradores o <em>c</em> para caracteres no son muy confusos si el ámbito es pequeño.</li>
+<li>En ocasiones puedes encontrarte con que las variables enumeradas comunican mejor.</li>
+</ul>
+<h2 id="inconsistent-names">Inconsistent Names</h2>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<p>Elige el mejor nombre y utiliza <em>Rename Method/Field/Constant</em> para poner el mismo nombre al mismo concepto. Una vez hecho, verás que las clases se ven más similares que antes. Busca entonces olores de duplicidad de código y elimínalos.</p>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Bad Smells: Olores leves</title>
+			<link>http://localhost:1313/posts/bad-smells-olores-leves/</link>
+			<pubDate>Tue, 19 Mar 2019 20:42:59 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/bad-smells-olores-leves/</guid>
+			<description>Los malos olores leves que podemos encontrar dentro de una clase son:
+ Comments (comentarios) Long Method (método largo) Large Class (clase larga) Long Parameter List (lista de parámetros larga)  Comments Qué hacer  Cuando un comentario explica un bloque de código, utiliza Extract Method para encapsular dicho bloque de código y aportar semántica. El comentario suele sugerir un nombre para el método. Cuando un comentario explica qué hace un método mejor que el propio nombre del método, utiliza Rename Method y aprovecha la base del comentario para darle un mejor nombre.</description>
+			<content type="html"><![CDATA[<p>Los malos olores leves que podemos encontrar dentro de una clase son:</p>
+<ul>
+<li><a href="#comments">Comments</a> (comentarios)</li>
+<li><a href="#long-method">Long Method</a> (método largo)</li>
+<li><a href="#large-class">Large Class</a> (clase larga)</li>
+<li><a href="#long-parameter-list">Long Parameter List</a> (lista de parámetros larga)</li>
+</ul>
+<h2 id="comments">Comments</h2>
+<h3 id="qué-hacer">Qué hacer</h3>
+<ul>
+<li>Cuando un comentario explica un bloque de código, utiliza <em>Extract Method</em> para encapsular dicho bloque de código y aportar semántica. El comentario suele sugerir un nombre para el método.</li>
+<li>Cuando un comentario explica qué hace un método mejor que el propio nombre del método, utiliza <em>Rename Method</em> y aprovecha la base del comentario para darle un mejor nombre.</li>
+<li>Cuando un comentario explica condiciones previas, considera utilizar <em>Introduce Assertion</em> para reemplazar el comentario con código.</li>
+</ul>
+<h3 id="recompensas">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+<h3 id="contraindicaciones">Contraindicaciones</h3>
+<p>No elimines comentarios que explican la razón de por qué algo es hecho de una manera determinada.</p>
+<h2 id="long-method">Long Method</h2>
+<h3 id="qué-hacer-1">Qué hacer</h3>
+<ul>
+<li>Utiliza <em>Extract Method</em> para romper el método en porciones más pequeñas. Busca comentarios y espacios en blanco que separen bloques interesantes. Extrae métodos que tengan significado semántico, no sólo una porción de código al azar.</li>
+<li>Puedes encontrar otras refactorizaciones (que limpien líneas, condicionales y usos de variables) que sean útiles antes de comenzar a separar el método.</li>
+</ul>
+<h3 id="recompensas-1">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+<li>Suele ayudar a la aparición de nuevas clases y abstracciones.</li>
+</ul>
+<h3 id="contraindicaciones-1">Contraindicaciones</h3>
+<p>En ocasiones puede que un método largo sea la mejor manera de expresar algo.</p>
+<h2 id="large-class">Large Class</h2>
+<h3 id="qué-hacer-2">Qué hacer</h3>
+<ul>
+<li>Utiliza <em>Extract Class</em> si puedes identificar una nueva clase que tiene parte de las responsabilidades de la clase actual.</li>
+<li>Utiliza <em>Extract Subclass</em> si puedes dividir las responsabilidades entre la clase y una nueva subclase.</li>
+<li>Utiliza <em>Extract Interface</em> si puedes identificar un subconjunto de características utilizadas por los clientes de la clase.</li>
+</ul>
+<h3 id="recompensas-2">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+</ul>
+<h2 id="long-parameter-list">Long Parameter List</h2>
+<h3 id="qué-hacer-3">Qué hacer</h3>
+<ul>
+<li>Si el valor del parámetro puede ser sustituído desde otro objeto que ya lo conoce, utiliza <em>Replace Parameter with Method</em>.</li>
+<li>Si el parámetro viene de un único objeto, prueba <em>Preserve Whole Object</em>.</li>
+<li>Si los datos no vienen de un objeto lógico, quizá te interese agruparlos mediante <em>Introduce Parameter Object</em>.</li>
+</ul>
+<h3 id="recompensas-3">Recompensas</h3>
+<ul>
+<li>Mejora la comunicación.</li>
+<li>Puede exponer duplicidad.</li>
+<li>Suele reducir el tamaño.</li>
+</ul>
+<h3 id="contraindicaciones-2">Contraindicaciones</h3>
+<ul>
+<li>En ocasiones quieres evitar una dependencia entre dos clases.</li>
+<li>A veces los parámetros no tienen un significado conjunto.</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Design Principles: La Ley de Demeter</title>
+			<link>http://localhost:1313/posts/design-principles-la-ley-de-demeter/</link>
+			<pubDate>Sun, 17 Mar 2019 20:20:50 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/design-principles-la-ley-de-demeter/</guid>
+			<description>Sobre la Ley de Demeter La Ley de Demeter (Law of Demeter en inglés) o LoD, también conocida como Principio del menor conocimiento (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.
+Enuncia lo siguiente:
+ Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual. Cada unidad debe hablar solo a sus amigos y no hablar con extraños.</description>
+			<content type="html"><![CDATA[<h2 id="sobre-la-ley-de-demeter">Sobre la Ley de Demeter</h2>
+<p>La <em>Ley de Demeter</em> (Law of Demeter en inglés) o LoD, también conocida como <em>Principio del menor conocimiento</em> (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.</p>
+<p>Enuncia lo siguiente:</p>
+<ul>
+<li>Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual.</li>
+<li>Cada unidad debe hablar solo a sus amigos y no hablar con extraños.</li>
+<li>Solo hablar con sus amigos inmediatos.</li>
+</ul>
+<h2 id="trasladando-la-ley-de-demeter-a-código">Trasladando la Ley de Demeter a código</h2>
+<p>Para cumplir con dichas premisas a nivel de código, se parte de que un método sólo debería utilizar otros métodos de:</p>
+<ul>
+<li>La propia clase a la que pertenece.</li>
+<li>Un objeto creado por el propio método.</li>
+<li>Un objeto pasado como parámetro de entrada al propio método.</li>
+<li>Un objeto almacenado como variable a nivel de la propia clase (propiedad).</li>
+</ul>
+<p>Un método nunca debería utilizar otro método de un objeto retornado por sus colaboradores.</p>
+<p>Veamos ahora cómo estas técnicas de refactoring nos ayudan a cumplir con dicha ley.</p>
+<h2 id="hide-delegate-ocultar-delegado">Hide Delegate (ocultar delegado)</h2>
+<p>Es una técnica utilizada para mover características entre clases. Se utiliza cuando nos encontramos con el problema en que un objeto <em>Client</em> hace una llamada a un método de un objeto <em>Delegate</em>, que a su vez es una propiedad u objeto retornado por un objeto <em>Server</em>, de otra clase. Se estaría produciendo un incumplimiento de la <em>Ley de Demeter</em>.</p>
+<p><img src="/posts/design-principles-la-ley-de-demeter-1.jpg" alt="La Ley de Demeter 1"></p>
+<p>La forma correcta de proceder es crear en <em>Server</em> un método propio que internamente llame y retorne el comportamiento que <em>Client</em> necesita de <em>Delegate</em>. De esta forma, <em>Client</em> no es consciente en ningún momento de la existencia de <em>Delegate</em> y eliminamos así la dependencia entre estas dos clases, reduciendo el acoplamiento en nuestra aplicación. <em>Server</em> pasa a ser lo que se conoce como <em>Middle Man</em>. Un objeto de una clase intermedia que se encarga de comunicar las peticiones de una clase a otra, que es la tiene el comportamiento que buscamos para desarrollar la lógica deseada.</p>
+<p><img src="/posts/design-principles-la-ley-de-demeter-2.jpg" alt="La Ley de Demeter 2"></p>
+<p>La contra de esta técnica de refactorización es que para cada comportamiento que <em>Client</em> necesite de <em>Delegate</em>, tendremos que crear un método en <em>Server</em> que se encargue de la comunicación entre ambos.</p>
+<p>Veamos ahora la técnica opuesta a <em>Hide Delegate</em>.</p>
+<h2 id="remove-middle-man-eliminar-intermediario">Remove Middle Man (eliminar intermediario)</h2>
+<p>Partiendo del ejemplo anterior en <em>Hide Delegate</em>, <em>Client</em> requiere una lógica que se encuentra en <em>Delegate</em> y <em>Server</em> hace de <em>Middle Man</em> entre ambos.</p>
+<p>Ahora bien, ya sea que nos encontremos en una etapa temprana del diseño de la aplicación o bien tras un tiempo de evolución en la misma mediante diferentes fases de refactoring, podemos encontrarnos con que un <em>Middle Man</em> carece de comportamiento propio y únicamente se encarga de delegar el trabajo a otras clases. Llegado este punto, debemos estudiar si realmente queremos que exista esta clase intermedia o si la eliminamos para reducir una complejidad innecesaria en el diseño de nuestra aplicación.</p>
+<p>Para eliminar el <em>Middle Man</em>, debemos sustituir su dependencia por la de <em>Delegate</em> en la clase <em>Client</em>, cambiando todas las referencias al falso comportamiento del mismo por referencias al comportamiento final correspondiente en <em>Delegate</em>.</p>
+<p>Algunos casos en los que podemos querer mantener la existencia de una clase <em>Middle Man</em> son:</p>
+<ul>
+<li>Si evita una interdependencia entre clases (reducir el acoplamiento)</li>
+<li>Sirve a la implementación de un patrón de diseño, como el <em>Proxy</em> o el <em>Decorator</em>.</li>
+</ul>
+<h2 id="conclusión">Conclusión</h2>
+<p>El uso de <em>Hide Delegate</em> y <em>Middle Man</em> permite cumplir con la <em>Ley de Demeter</em> y asegurarnos de que nuestro diseño mantenga una alta cohesión y un menor acoplamiento, si bien un uso excesivo de esta técnica puede resultar en un crecimiento desmesurado o quizá innecesario de la complejidad de nuestra aplicación, que podemos revertir mediante <em>Remove Middle Man</em>.</p>
+<p>La forma de asegurar que la implementación de ambas técnicas es la mejor solución para cada caso en particular, así como del resto de la arquitectura resultante en nuestro diseño, no es otra que dedicar unas horas semanales a realizar una revisión del análisis de nuestro proyecto, con su correspondiente refactoring de considerarse necesario.</p>
+<p>La reescritura habitual del código no sólo ayudará a que el diseño sea o se acerque lo máximo posible a ser la solución ideal en el momento en el que es escrito el código, sino que ayudará a que el mismo evolucione junto con nuestra lógica de negocio y maximizará la longevidad del proyecto.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Refactoring: Cambios seguros</title>
+			<link>http://localhost:1313/posts/refactoring-cambios-seguros/</link>
+			<pubDate>Sun, 17 Mar 2019 19:55:05 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/refactoring-cambios-seguros/</guid>
+			<description>Los pasos en la refactorización Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo.</description>
+			<content type="html"><![CDATA[<h2 id="los-pasos-en-la-refactorización">Los pasos en la refactorización</h2>
+<p>Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo. En ella, se hace hincapié en el hecho de que los cambios deben realizarse de forma segura.</p>
+<h2 id="un-ejemplo-de-refactoring">Un ejemplo de refactoring</h2>
+<p>Para ilustrar este aspecto, utilizo los pasos que observé en un tutorial online sobre refactoring en el que se realiza la técnica conocida como <em>Replace Temp with Query</em>, la cual se basa en sustituir la declaración y asignación de valor de una variable local por una llamada a otro método que nos retorne dicho valor. Si bien esta práctica puede suponer una ínfima disminución del rendimiento de la aplicación al tener que computar en cada llamada la lógica contenida en el método, aporta mayor claridad a la hora de leer y refleja mejor nuestras intenciones. Partiendo del siguiente código, realizaremos los pasos para sustituir la variable local discountFactor por una llamada a un método accesor con el mismo nombre.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
+ 
+  <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">itemPrice</span> <span class="o">=</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getPrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">discountFactor</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">500</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">discountFactor</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">discountFactor</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">discountFactor</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">basePrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>El primer paso me pareció un truco muy interesante. Se trata de añadir el modificador <em>final</em> a la variable <em>discountFactor</em> para indicar que no queremos que su valor sea sustituido en un punto posterior del método, lo cual es clave para sacarle partido a <em>Replace Temp with Query</em>. De esta forma, nuestro IDE se encargará de notificarnos que hay un error en la compilación (intencionado por nuestra parte) si el valor de la variable es modificado en un punto posterior.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
+ 
+  <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">itemPrice</span> <span class="o">=</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getPrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="kt">double</span> <span class="n">discountFactor</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">500</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">discountFactor</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">discountFactor</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">discountFactor</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">basePrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>Una vez identificada la porción de código a refactorizar, la extraemos a un nuevo método con el mismo nombre que la variable en cuestión. Podemos ayudarnos del atajo <em>Refactor &gt; Extract method</em> de nuestro IDE.
+En el caso de no contar con uno, primero copiamos la lógica a extraer al nuevo método, asignamos la llamada al método como valor de la variable y borramos la porción de código extraído.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
+ 
+  <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">itemPrice</span> <span class="o">=</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getPrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">discountFactor</span> <span class="o">=</span> <span class="n">discountFactor</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">discountFactor</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">basePrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">discountFactor</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">500</span><span class="o">)</span>
+      <span class="k">return</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+    <span class="k">return</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>Finalmente, utilizamos para el cálculo la llamada al nuevo método en lugar de la variable y la eliminamos.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
+ 
+  <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">itemPrice</span> <span class="o">=</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getPrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">discountFactor</span><span class="o">();</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">basePrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">discountFactor</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">500</span><span class="o">)</span>
+      <span class="k">return</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+    <span class="k">return</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>El código se ha mantenido estable durante todo el proceso de refactorización, a excepción del uso de <em>final</em> en la variable. Esta sería la forma correcta de proceder siempre que refactorizamos.</p>
+<p>Curiosamente, en el tutorial en el que se explicaba esta técnica, el código quedaba roto por un momento en el último paso descrito anteriormente. Al realizar manualmente la extracción de la lógica a un nuevo método, el autor eliminaba la declaración de la variable antes de sustituir su uso en el cálculo por la llamada al nuevo método. Si se intentase compilar el programa en ese punto, obtendríamos un error al no estar declarada la variable <em>discountFactor</em>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
+ 
+  <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">itemPrice</span> <span class="o">=</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span> 
+ 
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getPrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">basePrice</span><span class="o">()</span> <span class="o">*</span> <span class="n">discountFactor</span><span class="o">;</span> <span class="c1">// &lt;- discountFactor is undefined
+</span><span class="c1"></span>  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">basePrice</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">itemPrice</span><span class="o">;</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">private</span> <span class="kt">double</span> <span class="nf">discountFactor</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">basePrice</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">500</span><span class="o">)</span>
+      <span class="k">return</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">95</span><span class="o">;</span>
+    <span class="k">return</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>Durante el refactoring no debemos olvidar que la aplicación, salvo que así lo queramos, nunca debe conducir a un fallo tras un paso en la modificación del código.</p>
+<p>Este es un factor realmente importante, más aún cuando el proceso de refactorización que estemos realizando alcance un mayor nivel de abstracción. Es decir, que conlleve cambios externos a una clase, relacionados con la forma en que estas se comunican entre sí.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Refactoring: Introducción</title>
+			<link>http://localhost:1313/posts/refactoring-introduccion/</link>
+			<pubDate>Fri, 15 Mar 2019 18:48:02 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/refactoring-introduccion/</guid>
+			<description>Este es el primero de una serie de artículos en los que voy a tratar sobre mis experiencias con la refactorización (refactoring en inglés), siendo un novato en proceso de aprendizaje sobre dicha materia, mientras avanzo en mi lectura del libro Refactoring Workbook, por William C. Wake.
+Comienzo este artículo por el que fue mi primer encuentro con este tema: La definición. Más concretamente, la que puedes encontrar en este artículo de Wikipedia.</description>
+			<content type="html"><![CDATA[<p>Este es el primero de una serie de artículos en los que voy a tratar sobre mis experiencias con la refactorización (refactoring en inglés), siendo un novato en proceso de aprendizaje sobre dicha materia, mientras avanzo en mi lectura del libro Refactoring Workbook, por William C. Wake.</p>
+<p>Comienzo este artículo por el que fue mi primer encuentro con este tema: La definición. Más concretamente, la que puedes encontrar en 
+<a href="https://es.wikipedia.org/wiki/Refactorizaci%C3%B3n" target="_blank">este artículo de Wikipedia</a>.</p>
+<h2 id="la-primera-definición-no-tan-buena">La primera definición (no tan buena)</h2>
+<blockquote>
+<p>“La refactorización es una técnica de la ingeniería de software para reestructurar un código fuente, alterando su estructura interna sin cambiar su comportamiento externo.”</p>
+<p>&ndash; <!-- raw HTML omitted -->Wikipedia<!-- raw HTML omitted --></p>
+</blockquote>
+<p>Estas fueron las primeras palabras con las que me transmitieron (o intentaron) el significado de refactoring.</p>
+<p>La definición es correcta desde el punto de vista de un formador, alguien que <strong>ya posee este conocimiento</strong> que se quiere hacer llegar. Sin embargo, las palabras no transmiten nada más allá de lo que meramente expresan. Es decir, de ella podemos extraer:</p>
+<ul>
+<li>Técnica (La <strong>acción</strong>)</li>
+<li>Ingeniería de software (El <strong>ámbito</strong>)</li>
+<li>Reestructurar un código (El <strong>qué</strong>)</li>
+<li>Sin cambiar su comportamiento (El <strong>cómo</strong>)</li>
+</ul>
+<p>Si nos paramos a pensar un momento y somos capaces de ponernos en el punto de vista de un aprendiz, seremos capaces de detectar en ella la ausencia de las dos partes que de verdad importan, las más esenciales para transmitir el concepto. Estas son el <strong>por qué</strong> y el <strong>para qué</strong>.</p>
+<p>Definiciones con una estructura similar a esta están presentes en todos los ámbitos y se llevan escribiendo y repitiendo durante décadas. Fracasan miserablemente en el cumplimiento de su objetivo, carecen de la capacidad de plasmar el significado que pretenden comunicar y por ende el sentido mismo de su existencia.</p>
+<p>Además, en su esfuerzo de utilizar un vocabulario técnico se vuelven frías y vacuas. Características que hacen parecer como si no hubiesen sido escritas para ser leídas y reflexionadas por otro ser humano. Sobretodo si aún está aprendiendo sobre su ámbito.</p>
+<h2 id="la-segunda-definición-mucho-mejor">La segunda definición (mucho mejor)</h2>
+<p>Veamos ahora por el contrario, como es descrito el refactoring en la siguiente definición, extraída del libro citado en el inicio de este artículo.</p>
+<blockquote>
+<p>“La refactorización es el arte de mejorar el diseño de un código existente de una manera segura. Nos provee de formas para organizar un código problemático y nos da las pautas para mejorarlo.”</p>
+<p>&ndash; <!-- raw HTML omitted -->William C. Wake<!-- raw HTML omitted --></p>
+</blockquote>
+<p>A diferencia de la primera definición, esta se centra completamente en cumplir su objetivo de transmitir el concepto al que se refiere.</p>
+<p>De ella, seguimos extrayendo:</p>
+<ul>
+<li>La <strong>acción</strong>, de una forma quizá más acertada, enfocada a la artesanía en “el arte de”.</li>
+<li>El <strong>ámbito</strong>, en “el diseño de un código”.</li>
+<li>El <strong>qué</strong>, en “organizar un código”.</li>
+<li>El <strong>cómo</strong>, en “de una forma segura”.</li>
+</ul>
+<p>Y finalmente:</p>
+<ul>
+<li>El <strong>por qué</strong>, en “código problemático”.</li>
+<li>El <strong>para qué</strong>, en “mejorar el diseño”.</li>
+</ul>
+<h2 id="conclusión">Conclusión</h2>
+<p>Primero, que siempre es útil consultar distintas fuentes sobre una materia en concreto, pues te ayudarán a despejar las posibles dudas que te puedan surgir si has dado con una única explicación incompleta.</p>
+<p>Por último, que el fin de la refactorización es la mejora en el diseño del código existente.</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>
