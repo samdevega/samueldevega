@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>refactoring on Samuel de Vega</title>
-    <link>https://samdevega.github.io/samueldevega/tags/refactoring/</link>
+    <link>https://www.samueldevega.com/tags/refactoring/</link>
     <description>Recent content in refactoring on Samuel de Vega</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Sun, 17 Mar 2019 19:55:05 +0000</lastBuildDate><atom:link href="https://samdevega.github.io/samueldevega/tags/refactoring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Mar 2019 19:55:05 +0000</lastBuildDate><atom:link href="https://www.samueldevega.com/tags/refactoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Refactoring: Cambios seguros</title>
-      <link>https://samdevega.github.io/samueldevega/posts/refactoring-cambios-seguros/</link>
+      <link>https://www.samueldevega.com/posts/refactoring-cambios-seguros/</link>
       <pubDate>Sun, 17 Mar 2019 19:55:05 +0000</pubDate>
       
-      <guid>https://samdevega.github.io/samueldevega/posts/refactoring-cambios-seguros/</guid>
+      <guid>https://www.samueldevega.com/posts/refactoring-cambios-seguros/</guid>
       <description>Los pasos en la refactorización Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo.</description>
     </item>
     
     <item>
       <title>Refactoring: Introducción</title>
-      <link>https://samdevega.github.io/samueldevega/posts/refactoring-introduccion/</link>
+      <link>https://www.samueldevega.com/posts/refactoring-introduccion/</link>
       <pubDate>Fri, 15 Mar 2019 18:48:02 +0000</pubDate>
       
-      <guid>https://samdevega.github.io/samueldevega/posts/refactoring-introduccion/</guid>
+      <guid>https://www.samueldevega.com/posts/refactoring-introduccion/</guid>
       <description>Este es el primero de una serie de artículos en los que voy a tratar sobre mis experiencias con la refactorización (refactoring en inglés), siendo un novato en proceso de aprendizaje sobre dicha materia, mientras avanzo en mi lectura del libro Refactoring Workbook, por William C. Wake.
 Comienzo este artículo por el que fue mi primer encuentro con este tema: La definición. Más concretamente, la que puedes encontrar en este artículo de Wikipedia.</description>
     </item>

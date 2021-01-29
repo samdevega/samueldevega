@@ -4,7 +4,7 @@ date: 2019-03-20T17:31:25Z
 draft: false
 toc: false
 images:
-  - /images/bad-smells-alojando-el-cambio.jpg
+  - /posts/bad-smells-alojando-el-cambio.jpg
 tags: 
   - bad-smells
 ---

@@ -4,7 +4,7 @@ date: 2019-03-17T20:20:50Z
 draft: false
 toc: false
 images:
-  - /images/design-principles-la-ley-de-demeter.jpg
+  - /posts/design-principles-la-ley-de-demeter.jpg
 tags: 
   - design-principles
 ---

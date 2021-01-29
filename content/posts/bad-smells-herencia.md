@@ -4,7 +4,7 @@ date: 2019-03-20T12:47:12Z
 draft: false
 toc: false
 images:
-  - /images/bad-smells-herencia.jpg
+  - /posts/bad-smells-herencia.jpg
 tags: 
   - bad-smells
 ---

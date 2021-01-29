@@ -4,7 +4,7 @@ date: 2019-06-23T10:24:50Z
 draft: true
 toc: false
 images:
-  - /images/design-principles-single-responsibility.jpg
+  - /posts/design-principles-single-responsibility.jpg
 tags: 
   - design-principles
 ---

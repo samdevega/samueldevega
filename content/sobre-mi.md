@@ -4,7 +4,7 @@ date: 2021-01-27T18:02:43Z
 draft: false
 ---
 {{< rawhtml >}}
-<img src="/images/me.png" alt="Me" title="¡Este soy yo! 😄" style="border: 3px solid #e8eef2;  border-radius: 50%; height: 120px;" />
+<img src="me.png" alt="Me" title="¡Este soy yo! 😄" style="border: 3px solid #e8eef2;  border-radius: 50%; height: 120px; width: 120px;" />
 {{< /rawhtml >}}
 
 Soy originario de Las Palmas de Gran Canaria y me dedico al desarrollo de software multiplataforma.

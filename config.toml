@@ -1,4 +1,4 @@
-baseURL = "https://samdevega.github.io/samueldevega/"
+baseURL = "https://www.samueldevega.com"
 languageCode = "es-es"
 defaultContentLanguage = "es"
 title = "Samuel de Vega"
@@ -21,7 +21,7 @@ publishDir = "docs"
   dateformNum     = "2006-01-02"
   dateformNumTime = "02-01-2006 15:04 +0000"
 	homeSubtitle = "Software Developer"
-  bgImg = "/images/homepage.svg"
+  bgImg = "homepage.svg"
 	code_copy_button = true
 
 	[[params.social]]
