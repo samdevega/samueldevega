@@ -1,19 +1,118 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Samuel de Vega</title>
-		<link>https://www.samueldevega.com/posts/</link>
+		<link>http://localhost:1313/posts/</link>
 		<description>Recent content in Posts on Samuel de Vega</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>es-es</language>
-		<lastBuildDate>Sun, 23 Jun 2019 09:51:33 +0000</lastBuildDate>
-		<atom:link href="https://www.samueldevega.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		<lastBuildDate>Fri, 12 Mar 2021 09:00:44 +0000</lastBuildDate>
+		<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Object Oriented Pills: Polimorfismo procedural</title>
+			<link>http://localhost:1313/posts/object-oriented-pills-polimorfismo-procedural/</link>
+			<pubDate>Fri, 12 Mar 2021 09:00:44 +0000</pubDate>
+			
+			<guid>http://localhost:1313/posts/object-oriented-pills-polimorfismo-procedural/</guid>
+			<description>Sobre el polimorfismo en el diseño orientado a objetos Cuando hablamos de polimorfismo, nos referimos a que objetos de distintas clases sean capaces de responder a mensajes sintácticamente iguales (misma firma) independientemente de su comportamiento interno. Dependiendo del lenguaje en el que nos encontremos el polimorfismo se implementará de una forma determinada, como puede ser mediante interfaces.
+Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:</description>
+			<content type="html"><![CDATA[<h2 id="sobre-el-polimorfismo-en-el-diseño-orientado-a-objetos">Sobre el polimorfismo en el diseño orientado a objetos</h2>
+<p>Cuando hablamos de polimorfismo, nos referimos a que objetos de distintas clases sean capaces de responder a mensajes sintácticamente iguales (misma firma) independientemente de su comportamiento interno. Dependiendo del lenguaje en el que nos encontremos el polimorfismo se implementará de una forma determinada, como puede ser mediante interfaces.</p>
+<p>Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Figure</span> <span class="o">{</span>
+  <span class="kt">float</span> <span class="nf">area</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">radius</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nf">Square</span><span class="o">()</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">side</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nf">Triangle</span><span class="o">()</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">base</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">high</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>De esta forma, los objetos que se comuniquen con los generados por estas clases sólo necesitaran saber que están hablando con figuras geométricas, promoviendo así un diseño más cohesivo.</p>
+<h2 id="el-polimorfismo-procedural">El polimorfismo procedural</h2>
+<p>Podemos entender el polimorfismo procedural como la carencia en nuestro diseño de un polimorfismo orientado a objetos donde existe una clara oportunidad de aplicarlo.</p>
+<p>En ocasiones podemos encontrarnos con un conjunto de datos en los que uno de ellos indica un <em>tipo</em>. Esto puede ocurrir por diversos motivos como:</p>
+<ul>
+<li>Los datos vienen de la capa de persistencia o desde fuera del sistema, dado que su origen puede no trabajar con el paradigma orientado a objetos. También puede deberse a que el diseño de nuestra aplicación ha ido evolucionando pero inicialmente esa oportunidad de polimorfismo ha pasado inadvertida.</li>
+<li>El proyecto estaba en una fase prematura y en ese momento no teníamos la certeza suficiente de que el polimorfismo fuese la herramienta correcta a aplicar. Recordemos que cada vez que introducimos una nueva abstracción estamos añadiendo complejidad al diseño, por ello dicha abstracción necesita cumplir un propósito de mejora (comunicar, evitar duplicidad de intención, etc) que justifique su uso.</li>
+</ul>
+<p>El siguiente caso es un claro ejemplo de polimorfismo procedural.</p>
+<h3 id="ejemplo">Ejemplo</h3>
+<p>Tenemos un juego de rol y en nuestro diseño inicial sólo existían dos tipos de personaje: guerrero y arquero. No sabíamos como evolucionaría el juego y por ello no habíamos aplicado polimorfismo orientado a objetos aún, quedandonos un código como este:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Character</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">string</span> <span class="n">type</span><span class="o">;</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">type</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;warrior&#34;</span><span class="o">))</span>
+      <span class="o">?</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">strength</span>
+      <span class="o">:</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>Claramente estamos supeditando el comportamiento de cada instancia de nuestra clase <code>Character</code> en función del valor de su propiedad <code>type</code>.</p>
+<p>Ahora imaginemos que ha aparecido un nuevo requerimiento y necesitamos evolucionar el diseño para admitir un conjunto nuevo de tipos de personaje. Llegados a este punto vemos claramente que esa condición en nuestro código está reemplazando un polimorfismo orientado a objetos.</p>
+<p>Los pasos para reemplazar el polimorfismo procedural son:</p>
+<ol>
+<li>Lleva cada posible resultado de la condición actual a una nueva clase con un método de la misma firma, haciendo innecesaria la existencia de la propiedad <code>type</code>.</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Warrior</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">strength</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Archer</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><ol start="2">
+<li>Introduce tus nuevas clases con su comportamiento según el requerimiento:</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Mage</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">intellect</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">...</span>
+</code></pre></div><ol start="3">
+<li>(Opcional) Si tu lenguaje lo requiere, crea una interfaz común para las clases consiguiendo así limitar el impacto del cambio en el resto del diseño. Probablemente puedas reutilizar el nombre de la clase original:</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Character</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kt">float</span> <span class="nf">power</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Warrior</span> <span class="kd">implements</span> <span class="n">Character</span> <span class="o">{</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+<span class="o">...</span>
+</code></pre></div><p>Si además combinamos este cambio con otras técnicas como el patrón 
+<a href="https://es.wikipedia.org/wiki/Factory_Method_(patr%C3%B3n_de_dise%C3%B1o)" target="_blank">Factory Method</a>, conseguiremos aislar en un único punto de nuestro diseño la construcción de cada objeto de una clase específica y el resto de objetos interactuará con ellos conociendo únicamete su interfaz, cumpliendo así el principio 
+<a href="https://es.wikipedia.org/wiki/Principio_de_abierto/cerrado" target="_blank">Open/Closed</a>.</p>
+<h2 id="conclusión">Conclusión</h2>
+<p>Siempre que nos encontremos ante una propiedad de cuyo valor dependa el comportamiento de la clase, estamos ante un caso de polimorfismo procedural. Nombres de propiedad como <code>type</code>, <code>kind</code>, <code>[whatever]Type</code>, <code>[className]Class</code>, etc., son claros candidatos que deberían hacer saltar nuestras alarmas 🚨 para detectar esta carencia en el diseño, ser conscientes de ella y analizar si estamos en un punto en el que compense y esté justificado realizar la refactorización.</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Design Principles: Cohesión, acoplamiento y encapsulamiento</title>
-			<link>https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
+			<link>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
 			<pubDate>Sun, 23 Jun 2019 09:51:33 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
+			<guid>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
 			<description>Cohesión En el diseño orientado a objetos, se entiende por cohesión (cohesion en inglés) al grado en el que los distintos elementos de un módulo se mantienen unidos a dicho módulo. Es decir, aquellos elementos que pueden entenderse como parte de un concepto que los engloba, deberían estar dentro de este y no dispersos en otros módulos.
 Los elementos convergen hacia su propio módulo y son conocidos y usados sólo por este</description>
 			<content type="html"><![CDATA[<h2 id="cohesión">Cohesión</h2>
@@ -50,10 +149,10 @@ Los elementos tienden hacia otros módulos que los utilizan en vez de sólo por 
 		
 		<item>
 			<title>Bad Smells: Clases Librería</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-clases-libreria/</link>
+			<link>http://localhost:1313/posts/bad-smells-clases-libreria/</link>
 			<pubDate>Wed, 20 Mar 2019 18:44:47 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-clases-libreria/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-clases-libreria/</guid>
 			<description>Introducción Una aplicación moderna utilizará clases librería. En ocasiones estas nos ponen en un dilema. Queremos que la librería sea diferente, pero no queremos cambiarla. Incluso cuando es posible cambiar de librería, conlleva riesgos: Afecta a otros clientes y ello implica rehacer nuestros cambios para futuras versiones de la librería.
 Incomplete Library Class Síntomas Estás utilizando una librería y hay una característica que te gustaría que tuviese.
 Qué hacer  Contactar con el creador para ver si puede incorporar la característica.</description>
@@ -78,10 +177,10 @@ Qué hacer  Contactar con el creador para ver si puede incorporar la caracterís
 		
 		<item>
 			<title>Bad Smells: Alojando el cambio</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-alojando-el-cambio/</link>
+			<link>http://localhost:1313/posts/bad-smells-alojando-el-cambio/</link>
 			<pubDate>Wed, 20 Mar 2019 17:31:25 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-alojando-el-cambio/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-alojando-el-cambio/</guid>
 			<description>Introducción Algunos problemas se vuelven más aparentes cuando intentas cambiar el código. Lo ideal es que una decisión de cambio afecte sólo a un único lugar. Cuando esto no sucede, es una señal de duplicidad de código. Detectar estos problemas suele tener otros beneficios como facilitar la testeabilidad del código.
 Los malos olores relativos al cambio simultáneo forzado entre clases son:
  Divergent Change Shotgun Surgery Parallel Inheritance Hierarchies Combinatorial Explosion  Divergent Change Síntomas Una misma clase necesita cambiar por diferentes motivos.</description>
@@ -157,10 +256,10 @@ Los malos olores relativos al cambio simultáneo forzado entre clases son:
 		
 		<item>
 			<title>Bad Smells: Responsabilidad</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-responsabilidad/</link>
+			<link>http://localhost:1313/posts/bad-smells-responsabilidad/</link>
 			<pubDate>Wed, 20 Mar 2019 15:02:42 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-responsabilidad/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-responsabilidad/</guid>
 			<description>Introducción El equilibrio en la responsabilidad entre objetos es difícil de conseguir. Una de las virtudes de la refactorización es que nos permite experimentar con diferentes ideas de una forma segura y nos permite cambiar de idea.
 Hay herramientas que nos ayudan a decidir como trabajan los objetos entre sí, como los patrones de diseño o las cartas CRC.
 Las refactorizaciones suelen ser reversibles y pueden compensar dos opciones.
@@ -241,10 +340,10 @@ Los malos olores que pueden aparecer por una mala separación de las responsabil
 		
 		<item>
 			<title>Bad Smells: Herencia</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-herencia/</link>
+			<link>http://localhost:1313/posts/bad-smells-herencia/</link>
 			<pubDate>Wed, 20 Mar 2019 12:47:12 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-herencia/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-herencia/</guid>
 			<description>Introducción La relación entre una clase y su subclase suele comenzar siendo simple pero se va volviendo más complicada con el paso del tiempo. Una subclase a menudo depende de su generalización más estrechamente que una clase ajena, pero esto puede ser demasiado.
 La clave es decidir entre lo que una clase es y lo que una clase tiene. La estructura de una clase suele comenzar con herencia y con el paso del tiempo se mueve más hacia la composición.</description>
 			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
@@ -311,10 +410,10 @@ La clave es decidir entre lo que una clase es y lo que una clase tiene. La estru
 		
 		<item>
 			<title>Bad Smells: Datos</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-datos/</link>
+			<link>http://localhost:1313/posts/bad-smells-datos/</link>
 			<pubDate>Wed, 20 Mar 2019 08:09:48 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-datos/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-datos/</guid>
 			<description>Introducción Los DTOs son una oportunidad. Si los datos forman un buen conjunto, normalmente podemos encontrar un comportamiento que pertenezca a la clase.
 Los malos olores resultantes de un mal uso de las estructuras de datos son:
  Primitive Obsession Data Class Data Clump  Primitive Obsession Síntomas  Uso de primitivos o casi primitivos (int, float, String, etc.). Constantes y enumeraciones representando pequeños enteros. Constantes de tipo String representando nombres de campos.</description>
@@ -410,10 +509,10 @@ Los malos olores resultantes de un mal uso de las estructuras de datos son:
 		
 		<item>
 			<title>Bad Smells: Lógica condicional</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-logica-condicional/</link>
+			<link>http://localhost:1313/posts/bad-smells-logica-condicional/</link>
 			<pubDate>Tue, 19 Mar 2019 21:46:06 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-logica-condicional/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-logica-condicional/</guid>
 			<description>Introducción  Es difícil de razonar ya que tenemos que considerar múltiples caminos a través del código. Es tentador añadir casos de uso especiales en lugar de desarrollar un caso de uso general. A veces es usada como un mal sustituto de mecanismos orientados a objetos.  Los malos olores derivados de un mal uso de la lógica condicional son:
  Null Check Complicated Boolean Expression Special Case Simulated Inheritance (Switch Statement)  Null Check Qué hacer  Si hay un valor por defecto razonable, utilizalo.</description>
 			<content type="html"><![CDATA[<h2 id="introducción">Introducción</h2>
@@ -507,10 +606,10 @@ Los malos olores resultantes de un mal uso de las estructuras de datos son:
 		
 		<item>
 			<title>Bad Smells: Duplicación</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-duplicacion/</link>
+			<link>http://localhost:1313/posts/bad-smells-duplicacion/</link>
 			<pubDate>Tue, 19 Mar 2019 21:29:35 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-duplicacion/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-duplicacion/</guid>
 			<description>Introducción La duplicación causa los siguientes problemas:
  Hay más código que mantener. Las partes que varían están enterradas bajo las partes que se mantienen fijas. Variaciones en el código a menudo esconden similitudes más profundas. Hay tendencia a reparar un bug en un lugar y dejar otros idénticos sin reparar en otro sitio.  La duplicación del código suele ser síntoma de varios malos olores, como son:
  Magic Number Duplicated Code Alternative Classes with Different Interfaces  Magic Number Qué hacer Utiliza Replace Magic Number with Symbolic Constant para el valor específico.</description>
@@ -584,10 +683,10 @@ Si los valores son <em>strings</em>, puede que te interese aislarlos en alguna e
 		
 		<item>
 			<title>Bad Smells: Complejidad innecesaria</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-complejidad-innecesaria/</link>
+			<link>http://localhost:1313/posts/bad-smells-complejidad-innecesaria/</link>
 			<pubDate>Tue, 19 Mar 2019 21:14:35 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-complejidad-innecesaria/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-complejidad-innecesaria/</guid>
 			<description>&amp;ldquo;Everything should be made as simple as possible. But not simpler.&amp;rdquo;
 &amp;ndash; Albert Einstein La complejidad innecesaria del código puede presentarse en los siguientes malos olores:
  Dead Code Speculative Generality  Introducción Sigue el principio YAGNI (You Aren’t Gonna Need It).
@@ -644,10 +743,10 @@ Recompensas  Reduce el tamaño. Mejora la comunicación. Mejora la simplicidad. 
 		
 		<item>
 			<title>Bad Smells: Nombres</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-nombres/</link>
+			<link>http://localhost:1313/posts/bad-smells-nombres/</link>
 			<pubDate>Tue, 19 Mar 2019 21:02:05 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-nombres/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-nombres/</guid>
 			<description>Introducción Algunas herramientas para escoger nombres pueden ser:
  Diccionarios de proyectos. Vocabularios del dominio, ontologías y lenguajes. Metáforas de Xtreme Programming.  Los buenos nombres cumplen varias funciones:
  Proveen de un vocabulario para discutir nuestro dominio. Comunican intención. Aportan expectativas sobre cómo funciona el sistema. Se apoyan entre sí en un sistema de nombres.  Para elegir buenos nombres, utiliza las siguientes guías:
@@ -715,10 +814,10 @@ Recompensas  Reduce el tamaño. Mejora la comunicación. Mejora la simplicidad. 
 		
 		<item>
 			<title>Bad Smells: Olores leves</title>
-			<link>https://www.samueldevega.com/posts/bad-smells-olores-leves/</link>
+			<link>http://localhost:1313/posts/bad-smells-olores-leves/</link>
 			<pubDate>Tue, 19 Mar 2019 20:42:59 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/bad-smells-olores-leves/</guid>
+			<guid>http://localhost:1313/posts/bad-smells-olores-leves/</guid>
 			<description>Los malos olores leves que podemos encontrar dentro de una clase son:
  Comments (comentarios) Long Method (método largo) Large Class (clase larga) Long Parameter List (lista de parámetros larga)  Comments Qué hacer  Cuando un comentario explica un bloque de código, utiliza Extract Method para encapsular dicho bloque de código y aportar semántica. El comentario suele sugerir un nombre para el método. Cuando un comentario explica qué hace un método mejor que el propio nombre del método, utiliza Rename Method y aprovecha la base del comentario para darle un mejor nombre.</description>
 			<content type="html"><![CDATA[<p>Los malos olores leves que podemos encontrar dentro de una clase son:</p>
@@ -791,10 +890,10 @@ Recompensas  Reduce el tamaño. Mejora la comunicación. Mejora la simplicidad. 
 		
 		<item>
 			<title>Design Principles: La Ley de Demeter</title>
-			<link>https://www.samueldevega.com/posts/design-principles-la-ley-de-demeter/</link>
+			<link>http://localhost:1313/posts/design-principles-la-ley-de-demeter/</link>
 			<pubDate>Sun, 17 Mar 2019 20:20:50 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/design-principles-la-ley-de-demeter/</guid>
+			<guid>http://localhost:1313/posts/design-principles-la-ley-de-demeter/</guid>
 			<description>Sobre la Ley de Demeter La Ley de Demeter (Law of Demeter en inglés) o LoD, también conocida como Principio del menor conocimiento (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.
 Enuncia lo siguiente:
  Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual. Cada unidad debe hablar solo a sus amigos y no hablar con extraños.</description>
@@ -841,10 +940,10 @@ Enuncia lo siguiente:
 		
 		<item>
 			<title>Refactoring: Cambios seguros</title>
-			<link>https://www.samueldevega.com/posts/refactoring-cambios-seguros/</link>
+			<link>http://localhost:1313/posts/refactoring-cambios-seguros/</link>
 			<pubDate>Sun, 17 Mar 2019 19:55:05 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/refactoring-cambios-seguros/</guid>
+			<guid>http://localhost:1313/posts/refactoring-cambios-seguros/</guid>
 			<description>Los pasos en la refactorización Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo.</description>
 			<content type="html"><![CDATA[<h2 id="los-pasos-en-la-refactorización">Los pasos en la refactorización</h2>
 <p>Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo. En ella, se hace hincapié en el hecho de que los cambios deben realizarse de forma segura.</p>
@@ -970,10 +1069,10 @@ En el caso de no contar con uno, primero copiamos la lógica a extraer al nuevo 
 		
 		<item>
 			<title>Refactoring: Introducción</title>
-			<link>https://www.samueldevega.com/posts/refactoring-introduccion/</link>
+			<link>http://localhost:1313/posts/refactoring-introduccion/</link>
 			<pubDate>Fri, 15 Mar 2019 18:48:02 +0000</pubDate>
 			
-			<guid>https://www.samueldevega.com/posts/refactoring-introduccion/</guid>
+			<guid>http://localhost:1313/posts/refactoring-introduccion/</guid>
 			<description>Este es el primero de una serie de artículos en los que voy a tratar sobre mis experiencias con la refactorización (refactoring en inglés), siendo un novato en proceso de aprendizaje sobre dicha materia, mientras avanzo en mi lectura del libro Refactoring Workbook, por William C. Wake.
 Comienzo este artículo por el que fue mi primer encuentro con este tema: La definición. Más concretamente, la que puedes encontrar en este artículo de Wikipedia.</description>
 			<content type="html"><![CDATA[<p>Este es el primero de una serie de artículos en los que voy a tratar sobre mis experiencias con la refactorización (refactoring en inglés), siendo un novato en proceso de aprendizaje sobre dicha materia, mientras avanzo en mi lectura del libro Refactoring Workbook, por William C. Wake.</p>
