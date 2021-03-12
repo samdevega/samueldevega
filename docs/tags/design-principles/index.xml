@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>design-principles on Samuel de Vega</title>
-    <link>http://localhost:1313/tags/design-principles/</link>
+    <link>https://www.samueldevega.com/tags/design-principles/</link>
     <description>Recent content in design-principles on Samuel de Vega</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Sun, 23 Jun 2019 09:51:33 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/design-principles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jun 2019 09:51:33 +0000</lastBuildDate><atom:link href="https://www.samueldevega.com/tags/design-principles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Design Principles: Cohesión, acoplamiento y encapsulamiento</title>
-      <link>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
+      <link>https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</link>
       <pubDate>Sun, 23 Jun 2019 09:51:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
+      <guid>https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/</guid>
       <description>Cohesión En el diseño orientado a objetos, se entiende por cohesión (cohesion en inglés) al grado en el que los distintos elementos de un módulo se mantienen unidos a dicho módulo. Es decir, aquellos elementos que pueden entenderse como parte de un concepto que los engloba, deberían estar dentro de este y no dispersos en otros módulos.
 Los elementos convergen hacia su propio módulo y son conocidos y usados sólo por este</description>
     </item>
     
     <item>
       <title>Design Principles: La Ley de Demeter</title>
-      <link>http://localhost:1313/posts/design-principles-la-ley-de-demeter/</link>
+      <link>https://www.samueldevega.com/posts/design-principles-la-ley-de-demeter/</link>
       <pubDate>Sun, 17 Mar 2019 20:20:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/design-principles-la-ley-de-demeter/</guid>
+      <guid>https://www.samueldevega.com/posts/design-principles-la-ley-de-demeter/</guid>
       <description>Sobre la Ley de Demeter La Ley de Demeter (Law of Demeter en inglés) o LoD, también conocida como Principio del menor conocimiento (Principle of Least Knowledge) tiene como objetivo la reducción del acoplamiento y el incremento de la cohesión.
 Enuncia lo siguiente:
  Cada unidad debe tener un limitado conocimiento sobre otras unidades y solo conocer aquellas unidades estrechamente relacionadas a la unidad actual. Cada unidad debe hablar solo a sus amigos y no hablar con extraños.</description>

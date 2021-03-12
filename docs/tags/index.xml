@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Samuel de Vega</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://www.samueldevega.com/tags/</link>
     <description>Recent content in Tags on Samuel de Vega</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Fri, 12 Mar 2021 09:00:44 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Mar 2021 09:00:44 +0000</lastBuildDate><atom:link href="https://www.samueldevega.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>solid</title>
-      <link>http://localhost:1313/tags/solid/</link>
+      <link>https://www.samueldevega.com/tags/solid/</link>
       <pubDate>Fri, 12 Mar 2021 09:00:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/solid/</guid>
+      <guid>https://www.samueldevega.com/tags/solid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>design-principles</title>
-      <link>http://localhost:1313/tags/design-principles/</link>
+      <link>https://www.samueldevega.com/tags/design-principles/</link>
       <pubDate>Sun, 23 Jun 2019 09:51:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/design-principles/</guid>
+      <guid>https://www.samueldevega.com/tags/design-principles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bad-smells</title>
-      <link>http://localhost:1313/tags/bad-smells/</link>
+      <link>https://www.samueldevega.com/tags/bad-smells/</link>
       <pubDate>Wed, 20 Mar 2019 18:44:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/bad-smells/</guid>
+      <guid>https://www.samueldevega.com/tags/bad-smells/</guid>
       <description></description>
     </item>
     
     <item>
       <title>refactoring</title>
-      <link>http://localhost:1313/tags/refactoring/</link>
+      <link>https://www.samueldevega.com/tags/refactoring/</link>
       <pubDate>Sun, 17 Mar 2019 19:55:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/refactoring/</guid>
+      <guid>https://www.samueldevega.com/tags/refactoring/</guid>
       <description></description>
     </item>
     

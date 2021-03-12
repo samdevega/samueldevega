@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>solid on Samuel de Vega</title>
-    <link>http://localhost:1313/tags/solid/</link>
+    <link>https://www.samueldevega.com/tags/solid/</link>
     <description>Recent content in solid on Samuel de Vega</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Fri, 12 Mar 2021 09:00:44 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/solid/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Mar 2021 09:00:44 +0000</lastBuildDate><atom:link href="https://www.samueldevega.com/tags/solid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Object Oriented Pills: Polimorfismo procedural</title>
-      <link>http://localhost:1313/posts/object-oriented-pills-polimorfismo-procedural/</link>
+      <link>https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural/</link>
       <pubDate>Fri, 12 Mar 2021 09:00:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/object-oriented-pills-polimorfismo-procedural/</guid>
+      <guid>https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural/</guid>
       <description>Sobre el polimorfismo en el diseño orientado a objetos Cuando hablamos de polimorfismo, nos referimos a que objetos de distintas clases sean capaces de responder a mensajes sintácticamente iguales (misma firma) independientemente de su comportamiento interno. Dependiendo del lenguaje en el que nos encontremos el polimorfismo se implementará de una forma determinada, como puede ser mediante interfaces.
 Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:</description>
     </item>

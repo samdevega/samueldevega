@@ -49,7 +49,8 @@ De esta forma, los objetos que se comuniquen con los generados por estas clases 
 Podemos entender el polimorfismo procedural como la carencia en nuestro diseño de un polimorfismo orientado a objetos donde existe una clara oportunidad de aplicarlo.
 
 En ocasiones podemos encontrarnos con un conjunto de datos en los que uno de ellos indica un *tipo*. Esto puede ocurrir por diversos motivos como:
-* Los datos vienen de la capa de persistencia o desde fuera del sistema, dado que su origen puede no trabajar con el paradigma orientado a objetos. También puede deberse a que el diseño de nuestra aplicación ha ido evolucionando pero inicialmente esa oportunidad de polimorfismo ha pasado inadvertida.
+* Los datos vienen de la capa de persistencia o desde fuera del sistema, dado que su origen puede no trabajar con el paradigma orientado a objetos.
+* El diseño ha ido evolucionando y esa oportunidad de polimorfismo ha pasado inadvertida.
 * El proyecto estaba en una fase prematura y en ese momento no teníamos la certeza suficiente de que el polimorfismo fuese la herramienta correcta a aplicar. Recordemos que cada vez que introducimos una nueva abstracción estamos añadiendo complejidad al diseño, por ello dicha abstracción necesita cumplir un propósito de mejora (comunicar, evitar duplicidad de intención, etc) que justifique su uso.
 
 El siguiente caso es un claro ejemplo de polimorfismo procedural.
