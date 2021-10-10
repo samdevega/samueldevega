@@ -6,7 +6,19 @@
     <description>Recent content on Samuel de Vega</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Fri, 12 Mar 2021 09:00:44 +0000</lastBuildDate><atom:link href="https://www.samueldevega.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 13:45:42 +0100</lastBuildDate><atom:link href="https://www.samueldevega.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Object Oriented Pills Depende del comportamiento, no de los datos</title>
+      <link>https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos/</link>
+      <pubDate>Sun, 10 Oct 2021 13:45:42 +0100</pubDate>
+      
+      <guid>https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos/</guid>
+      <description>Al programar, se puede caer en la tentación de utilizar variables para almacenar el resultado de la llamada a un método determinado. Esto es particularmente delicado cuando un método habla sobre la lógica de la aplicación.
+Contexto Supongamos un formulario de acceso, el cual se compone de un email, una contraseña y el correspondiente botón de envío.
+Para este punto de la aplicación se han definido las siguientes reglas:
+ El email debe ser estructuralmente válido.</description>
+    </item>
+    
     <item>
       <title>Object Oriented Pills: Polimorfismo procedural</title>
       <link>https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural/</link>
@@ -100,17 +112,6 @@ Los malos olores resultantes de un mal uso de las estructuras de datos son:
       <guid>https://www.samueldevega.com/posts/bad-smells-logica-condicional/</guid>
       <description>Introducción  Es difícil de razonar ya que tenemos que considerar múltiples caminos a través del código. Es tentador añadir casos de uso especiales en lugar de desarrollar un caso de uso general. A veces es usada como un mal sustituto de mecanismos orientados a objetos.  Los malos olores derivados de un mal uso de la lógica condicional son:
  Null Check Complicated Boolean Expression Special Case Simulated Inheritance (Switch Statement)  Null Check Qué hacer  Si hay un valor por defecto razonable, utilizalo.</description>
-    </item>
-    
-    <item>
-      <title>Bad Smells: Duplicación</title>
-      <link>https://www.samueldevega.com/posts/bad-smells-duplicacion/</link>
-      <pubDate>Tue, 19 Mar 2019 21:29:35 +0000</pubDate>
-      
-      <guid>https://www.samueldevega.com/posts/bad-smells-duplicacion/</guid>
-      <description>Introducción La duplicación causa los siguientes problemas:
- Hay más código que mantener. Las partes que varían están enterradas bajo las partes que se mantienen fijas. Variaciones en el código a menudo esconden similitudes más profundas. Hay tendencia a reparar un bug en un lugar y dejar otros idénticos sin reparar en otro sitio.  La duplicación del código suele ser síntoma de varios malos olores, como son:
- Magic Number Duplicated Code Alternative Classes with Different Interfaces  Magic Number Qué hacer Utiliza Replace Magic Number with Symbolic Constant para el valor específico.</description>
     </item>
     
   </channel>

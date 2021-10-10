@@ -6,22 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta itemprop="name" content="Refactoring: Cambios seguros">
-<meta itemprop="description" content="Los pasos en la refactorización Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo.">
-<meta itemprop="datePublished" content="2019-03-17T19:55:05+00:00" />
+<meta itemprop="description" content="Los pasos en la refactorización Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo."><meta itemprop="datePublished" content="2019-03-17T19:55:05+00:00" />
 <meta itemprop="dateModified" content="2019-03-17T19:55:05+00:00" />
-<meta itemprop="wordCount" content="812">
-<meta itemprop="image" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros.jpg">
-
-
-
-<meta itemprop="keywords" content="refactoring," />
-<meta property="og:title" content="Refactoring: Cambios seguros" />
+<meta itemprop="wordCount" content="812"><meta itemprop="image" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros.jpg">
+<meta itemprop="keywords" content="refactoring," /><meta property="og:title" content="Refactoring: Cambios seguros" />
 <meta property="og:description" content="Los pasos en la refactorización Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros/" />
-<meta property="og:image" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros.jpg" />
+<meta property="og:url" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros/" /><meta property="og:image" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-03-17T19:55:05+00:00" />
 <meta property="article:modified_time" content="2019-03-17T19:55:05+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.samueldevega.com/posts/refactoring-cambios-seguros.jpg"/>
 
@@ -80,7 +74,7 @@
 <p>Las diferentes técnicas que conforman la refactorización tienen un mismo denominador común. Todas se dividen en pequeños pasos en los que se debe tener siempre presente que el cambio realizado en el código no debería dar como resultado un error del mismo a nivel de compilación o interpretación, salvo que esto sea intencionado. Esto puede extraerse de la segunda definición de refactoring citada en mi anterior artículo. En ella, se hace hincapié en el hecho de que los cambios deben realizarse de forma segura.</p>
 <h2 id="un-ejemplo-de-refactoring">Un ejemplo de refactoring<a href="#un-ejemplo-de-refactoring" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Para ilustrar este aspecto, utilizo los pasos que observé en un tutorial online sobre refactoring en el que se realiza la técnica conocida como <em>Replace Temp with Query</em>, la cual se basa en sustituir la declaración y asignación de valor de una variable local por una llamada a otro método que nos retorne dicho valor. Si bien esta práctica puede suponer una ínfima disminución del rendimiento de la aplicación al tener que computar en cada llamada la lógica contenida en el método, aporta mayor claridad a la hora de leer y refleja mejor nuestras intenciones. Partiendo del siguiente código, realizaremos los pasos para sustituir la variable local discountFactor por una llamada a un método accesor con el mismo nombre.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
  
   <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
@@ -102,7 +96,7 @@
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div><p>El primer paso me pareció un truco muy interesante. Se trata de añadir el modificador <em>final</em> a la variable <em>discountFactor</em> para indicar que no queremos que su valor sea sustituido en un punto posterior del método, lo cual es clave para sacarle partido a <em>Replace Temp with Query</em>. De esta forma, nuestro IDE se encargará de notificarnos que hay un error en la compilación (intencionado por nuestra parte) si el valor de la variable es modificado en un punto posterior.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
  
   <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
@@ -125,7 +119,7 @@
 <span class="o">}</span>
 </code></pre></div><p>Una vez identificada la porción de código a refactorizar, la extraemos a un nuevo método con el mismo nombre que la variable en cuestión. Podemos ayudarnos del atajo <em>Refactor &gt; Extract method</em> de nuestro IDE.
 En el caso de no contar con uno, primero copiamos la lógica a extraer al nuevo método, asignamos la llamada al método como valor de la variable y borramos la porción de código extraído.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
  
   <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
@@ -148,7 +142,7 @@ En el caso de no contar con uno, primero copiamos la lógica a extraer al nuevo 
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div><p>Finalmente, utilizamos para el cálculo la llamada al nuevo método en lugar de la variable y la eliminamos.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
  
   <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
@@ -171,7 +165,7 @@ En el caso de no contar con uno, primero copiamos la lógica a extraer al nuevo 
 <span class="o">}</span>
 </code></pre></div><p>El código se ha mantenido estable durante todo el proceso de refactorización, a excepción del uso de <em>final</em> en la variable. Esta sería la forma correcta de proceder siempre que refactorizamos.</p>
 <p>Curiosamente, en el tutorial en el que se explicaba esta técnica, el código quedaba roto por un momento en el último paso descrito anteriormente. Al realizar manualmente la extracción de la lógica a un nuevo método, el autor eliminaba la declaración de la variable antes de sustituir su uso en el cálculo por la llamada al nuevo método. Si se intentase compilar el programa en ese punto, obtendríamos un error al no estar declarada la variable <em>discountFactor</em>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kt">double</span> <span class="n">itemPrice</span><span class="o">;</span>
  
   <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">double</span> <span class="n">itemPrice</span><span class="o">)</span> <span class="o">{</span>
@@ -226,7 +220,7 @@ En el caso de no contar con uno, primero copiamos la lógica a extraer al nuevo 
 
 
 
-	<script src="https://www.samueldevega.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	<script src="https://www.samueldevega.com/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
 	
 
 </body>

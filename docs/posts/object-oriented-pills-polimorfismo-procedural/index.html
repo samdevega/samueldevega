@@ -7,23 +7,17 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta itemprop="name" content="Object Oriented Pills: Polimorfismo procedural">
 <meta itemprop="description" content="Sobre el polimorfismo en el diseño orientado a objetos Cuando hablamos de polimorfismo, nos referimos a que objetos de distintas clases sean capaces de responder a mensajes sintácticamente iguales (misma firma) independientemente de su comportamiento interno. Dependiendo del lenguaje en el que nos encontremos el polimorfismo se implementará de una forma determinada, como puede ser mediante interfaces.
-Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:">
-<meta itemprop="datePublished" content="2021-03-12T09:00:44+00:00" />
+Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:"><meta itemprop="datePublished" content="2021-03-12T09:00:44+00:00" />
 <meta itemprop="dateModified" content="2021-03-12T09:00:44+00:00" />
-<meta itemprop="wordCount" content="706">
-<meta itemprop="image" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural.jpg">
-
-
-
-<meta itemprop="keywords" content="solid," />
-<meta property="og:title" content="Object Oriented Pills: Polimorfismo procedural" />
+<meta itemprop="wordCount" content="706"><meta itemprop="image" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural.jpg">
+<meta itemprop="keywords" content="solid," /><meta property="og:title" content="Object Oriented Pills: Polimorfismo procedural" />
 <meta property="og:description" content="Sobre el polimorfismo en el diseño orientado a objetos Cuando hablamos de polimorfismo, nos referimos a que objetos de distintas clases sean capaces de responder a mensajes sintácticamente iguales (misma firma) independientemente de su comportamiento interno. Dependiendo del lenguaje en el que nos encontremos el polimorfismo se implementará de una forma determinada, como puede ser mediante interfaces.
 Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural/" />
-<meta property="og:image" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural.jpg" />
+<meta property="og:url" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural/" /><meta property="og:image" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-03-12T09:00:44+00:00" />
 <meta property="article:modified_time" content="2021-03-12T09:00:44+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural.jpg"/>
 
@@ -82,22 +76,22 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 				<h2 id="sobre-el-polimorfismo-en-el-diseño-orientado-a-objetos">Sobre el polimorfismo en el diseño orientado a objetos<a href="#sobre-el-polimorfismo-en-el-diseño-orientado-a-objetos" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Cuando hablamos de polimorfismo, nos referimos a que objetos de distintas clases sean capaces de responder a mensajes sintácticamente iguales (misma firma) independientemente de su comportamiento interno. Dependiendo del lenguaje en el que nos encontremos el polimorfismo se implementará de una forma determinada, como puede ser mediante interfaces.</p>
 <p>Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cuyas clases representan las figuras geométricas de un círculo, un cuadrado y un triángulo:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Figure</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Figure</span> <span class="o">{</span>
   <span class="kt">float</span> <span class="nf">area</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">radius</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nf">Square</span><span class="o">()</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nf">Square</span><span class="o">()</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">side</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nf">Triangle</span><span class="o">()</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nf">Triangle</span><span class="o">()</span> <span class="kd">implements</span> <span class="n">Figure</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">base</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">high</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
@@ -115,7 +109,7 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 <p>El siguiente caso es un claro ejemplo de polimorfismo procedural.</p>
 <h3 id="ejemplo">Ejemplo<a href="#ejemplo" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>Tenemos un juego de rol y en nuestro diseño inicial sólo existían dos tipos de personaje: guerrero y arquero. No sabíamos como evolucionaría el juego y por ello no habíamos aplicado polimorfismo orientado a objetos aún, quedandonos un código como este:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Character</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Character</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="n">string</span> <span class="n">type</span><span class="o">;</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
@@ -130,13 +124,13 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 <ol>
 <li>Lleva cada posible resultado de la condición actual a una nueva clase con un método de la misma firma, haciendo innecesaria la existencia de la propiedad <code>type</code>.</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Warrior</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Warrior</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">strength</span><span class="o">;</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Archer</span> <span class="o">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Archer</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
@@ -145,7 +139,7 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 </code></pre></div><ol start="2">
 <li>Introduce tus nuevas clases con su comportamiento según el requerimiento:</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Mage</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Mage</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">power</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">level</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">intellect</span><span class="o">;</span>
@@ -155,11 +149,11 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 </code></pre></div><ol start="3">
 <li>(Opcional) Si tu lenguaje lo requiere, crea una interfaz común para las clases consiguiendo así limitar el impacto del cambio en el resto del diseño. Probablemente puedas reutilizar el nombre de la clase original:</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Character</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Character</span> <span class="o">{</span>
   <span class="o">...</span>
   <span class="kt">float</span> <span class="nf">power</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Warrior</span> <span class="kd">implements</span> <span class="n">Character</span> <span class="o">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Warrior</span> <span class="kd">implements</span> <span class="n">Character</span> <span class="o">{</span>
   <span class="o">...</span>
 <span class="o">}</span>
 <span class="o">...</span>
@@ -180,6 +174,9 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 			</footer>
 		</article>
 		<div class="post-nav thin">
+			<a class="next-post" href="https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>Object Oriented Pills Depende del comportamiento, no de los datos</span>
+			</a>
 			<a class="prev-post" href="https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/">
 				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Design Principles: Cohesión, acoplamiento y encapsulamiento</span>
 			</a>
@@ -196,7 +193,7 @@ Un ejemplo sencillo puede ser la respuesta a preguntar por su área a objetos cu
 
 
 
-	<script src="https://www.samueldevega.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	<script src="https://www.samueldevega.com/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
 	
 
 </body>

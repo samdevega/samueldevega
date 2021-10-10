@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta itemprop="name" content="Object Oriented Pills Depende del comportamiento, no de los datos">
+<meta itemprop="description" content="Al programar, se puede caer en la tentación de utilizar variables para almacenar el resultado de la llamada a un método determinado. Esto es particularmente delicado cuando un método habla sobre la lógica de la aplicación.
+Contexto Supongamos un formulario de acceso, el cual se compone de un email, una contraseña y el correspondiente botón de envío.
+Para este punto de la aplicación se han definido las siguientes reglas:
+ El email debe ser estructuralmente válido."><meta itemprop="datePublished" content="2021-10-10T13:45:42+01:00" />
+<meta itemprop="dateModified" content="2021-10-10T13:45:42+01:00" />
+<meta itemprop="wordCount" content="601"><meta itemprop="image" content="https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos.jpg">
+<meta itemprop="keywords" content="solid," /><meta property="og:title" content="Object Oriented Pills Depende del comportamiento, no de los datos" />
+<meta property="og:description" content="Al programar, se puede caer en la tentación de utilizar variables para almacenar el resultado de la llamada a un método determinado. Esto es particularmente delicado cuando un método habla sobre la lógica de la aplicación.
+Contexto Supongamos un formulario de acceso, el cual se compone de un email, una contraseña y el correspondiente botón de envío.
+Para este punto de la aplicación se han definido las siguientes reglas:
+ El email debe ser estructuralmente válido." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos/" /><meta property="og:image" content="https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-10T13:45:42+01:00" />
+<meta property="article:modified_time" content="2021-10-10T13:45:42+01:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos.jpg"/>
+
+<meta name="twitter:title" content="Object Oriented Pills Depende del comportamiento, no de los datos"/>
+<meta name="twitter:description" content="Al programar, se puede caer en la tentación de utilizar variables para almacenar el resultado de la llamada a un método determinado. Esto es particularmente delicado cuando un método habla sobre la lógica de la aplicación.
+Contexto Supongamos un formulario de acceso, el cual se compone de un email, una contraseña y el correspondiente botón de envío.
+Para este punto de la aplicación se han definido las siguientes reglas:
+ El email debe ser estructuralmente válido."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Object Oriented Pills Depende del comportamiento, no de los datos</title>
+	<link rel="stylesheet" href="https://www.samueldevega.com/css/style.min.cef83ef5167f12741bccef926388e39efef792fb33291b97aa82f67bad13b3d5.css" integrity="sha256-zvg+9RZ/EnQbzO+SY4jjnv73kvszKRuXqoL2e60Ts9U=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://www.samueldevega.com/posts/object-oriented-pills-depende-del-comportamiento-no-de-los-datos.jpg');}</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.samueldevega.com">Samuel de Vega</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://www.samueldevega.com/posts/">Posts</a>
+				<a href="https://www.samueldevega.com/sobre-mi/">Sobre mí</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/SamdeVega" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/SamdeVega" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://es.linkedin.com/in/sam-de-vega" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.samueldevega.com/posts/">Posts</a></li>
+			<li><a href="https://www.samueldevega.com/sobre-mi/">Sobre mí</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>10 Oct, 2021</span></div>
+				<h1>Object Oriented Pills Depende del comportamiento, no de los datos</h1>
+			</header>
+			<div class="content">
+				<p>Al programar, se puede caer en la tentación de utilizar variables para almacenar el resultado de la llamada a un método determinado. Esto es particularmente delicado cuando un método habla sobre la lógica de la aplicación.</p>
+<h2 id="contexto">Contexto<a href="#contexto" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Supongamos un formulario de acceso, el cual se compone de un email, una contraseña y el correspondiente botón de envío.</p>
+<p>Para este punto de la aplicación se han definido las siguientes reglas:</p>
+<ul>
+<li>El email debe ser estructuralmente válido.</li>
+<li>La contraseña debe tener como mínimo ocho caracteres.</li>
+</ul>
+<p>El código correspondiente podría ser algo así:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">email</span> <span class="c1">// Stored input email value
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">password</span> <span class="c1">// Stored input password value
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">isValidForm</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="kr">const</span> <span class="nx">validateEmail</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>
+  <span class="k">return</span> <span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">email</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">validatePassword</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">7</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">validateForm</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">isValidForm</span> <span class="o">=</span> <span class="nx">validateEmail</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">validatePassword</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">submitForm</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">validateForm</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isValidForm</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="c1">// API call
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><h2 id="problema">Problema<a href="#problema" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Como vemos, la lógica del código es correcta, el funcionamiento es el esperado. Por otra parte, haber optado por almacenar la respuesta de la validación en una variable <em>isValidForm</em> supone:</p>
+<ul>
+<li>Incrementar el estado de la aplicación.</li>
+<li>Añadir duplicidad.</li>
+<li>Añadir fragilidad.</li>
+</ul>
+<p>Se introduce el coste de añadir y mantener tests que validen el nuevo estado. Hay que comprobar que los posibles valores de la variable entran dentro de lo esperado.</p>
+<p>Se introduce duplicidad porque la variable es un reflejo del resultado dado por los métodos que contienen la lógica de validación del formulario.</p>
+<p>La duplicidad da pie a posibles interpretaciones erróneas sobre la intención de la variable. Otras personas pueden pensar que sería una buena idea cambiar su valor en algún momento intermedio del flujo de la aplicación mediante una simple línea.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">validateForm</span><span class="p">()</span>
+<span class="p">...</span> <span class="c1">// Several lines of code
+</span><span class="c1"></span><span class="nx">isValidForm</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">// Here is where hell begins!
+</span><span class="c1"></span><span class="p">...</span> <span class="c1">// Several lines of code
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isValidForm</span><span class="p">)</span>
+  <span class="k">return</span>
+<span class="c1">// API call
+</span></code></pre></div><p>A su vez, la visibilidad que se decida dar a dicha variable (hacerla pública por ejemplo) ahora o en un futuro, podría generar un acoplamiento que se extienda por nuestro código hacia otros métodos, clases, componentes, módulos, sistema, el infinito y más allá. Todo ello supone fragilidad.</p>
+<h2 id="solución">Solución<a href="#solución" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>La respuesta es eliminar la variable <em>isValidForm</em>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">email</span> <span class="c1">// Stored input email value
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">password</span> <span class="c1">// Stored input password value
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">validateEmail</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>
+  <span class="k">return</span> <span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">email</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">validatePassword</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">7</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">validateForm</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">validateEmail</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">validatePassword</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">submitForm</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">validateForm</span><span class="p">())</span>
+    <span class="k">return</span>
+  <span class="c1">// API call
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>De esta forma se evitan posibles errores de interpretación o uso. Ahora, si se quiere pasar la validación, se fuerza bien a introducir la variable en primer lugar o bien a tener que modificar las propias reglas de validación. Ambos casos son menos triviales que la actualización del valor de una variable ya existente y harán pensar dos veces si lo que se está a punto de hacer es lo que realmente interesa.</p>
+<p>Con ello ganamos:</p>
+<ul>
+<li>Eliminar complejidad innecesaria al reducir el estado.</li>
+<li>Eliminar duplicidad, cumplir 
+<a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">DRY</a>.</li>
+<li>Eliminar la posibilidad de crear 
+<a href="https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/#acoplamiento" target="_blank">acoplamiento</a>, asegurar la 
+<a href="https://www.samueldevega.com/posts/design-principles-cohesion-acoplamiento-y-encapsulamiento/#cohesi%C3%B3n" target="_blank">cohesión</a>.</li>
+</ul>
+<h2 id="conclusión">Conclusión<a href="#conclusión" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>A medida que el estado de una aplicación crece, la complejidad lo hace a su vez. Por ello, es una buena decisión evitar la aparición de variables innecesarias.</p>
+<p>Cuanto menor sea el estado de una aplicación, más sencilla es de testear, ampliar y mantener en el tiempo.</p>
+<p>Es importante tener presente todo lo que puede desencadenar la introducción de una &ldquo;simple&rdquo; variable que en primera instancia puede parecer inocua.</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://www.samueldevega.com/tags/solid">solid</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>10-10-2021 13:45 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://www.samueldevega.com/posts/object-oriented-pills-polimorfismo-procedural/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Object Oriented Pills: Polimorfismo procedural</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>
+			&copy; 2021 <a href="https://www.samueldevega.com">Samuel de Vega</a> &#183; <a href="https://www.samueldevega.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://www.samueldevega.com/js/bundle.min.7d8545daa55d62427355498dd8da13f98ff79a7938ce7d2a5e2ae1ec0de3beb8.js" integrity="sha256-fYVF2qVdYkJzVUmN2NoT+Y/3mnk4zn0qXirh7A3jvrg=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
