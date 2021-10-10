@@ -1,5 +1,5 @@
 ---
-title: "Object Oriented Pills Depende del comportamiento, no de los datos"
+title: "Object Oriented Pills: Depende del comportamiento, no de los datos"
 date: 2021-10-10T13:45:42+01:00
 draft: false
 toc: false
