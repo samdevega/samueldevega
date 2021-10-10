@@ -35,5 +35,3 @@ draft: false
 Soy originario de Las Palmas de Gran Canaria y me dedico al desarrollo de software multiplataforma.
 
 Me defino como alguien autodidacta, con afán de superación, creativo, proactivo, asertivo y siempre encantado de trabajar en equipo.
-
-Actualmente trabajo en {{< rawhtml >}}<a href="https://leanmind.es/es/" target="_blank">Lean Mind</a>{{< /rawhtml >}}.
