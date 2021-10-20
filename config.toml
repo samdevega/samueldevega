@@ -34,7 +34,7 @@ publishDir = "docs"
 
 	[[params.social]]
     name = "linkedin"
-    url = "https://es.linkedin.com/in/sam-de-vega"
+    url = "https://www.linkedin.com/in/sam-de-vega/"
 
 [menu]
 
