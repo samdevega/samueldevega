@@ -26,11 +26,11 @@ publishDir = "docs"
 
 	[[params.social]]
     name = "twitter"
-    url = "https://twitter.com/SamdeVega"
+    url = "https://twitter.com/samdevega"
 
   [[params.social]]
     name = "github"
-    url = "https://github.com/SamdeVega"
+    url = "https://github.com/samdevega"
 
 	[[params.social]]
     name = "linkedin"
